@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <changeSet id="1" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-03.1"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_TEST_LOB.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION FN_TEST_LOB;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+
+</databaseChangeLog>
+	
+	

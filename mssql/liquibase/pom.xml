@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.liquibase</groupId>
+    <artifactId>mssql-liquibase</artifactId>
+    <version>1.0.0</version>
+    <name>mssql-liquibase</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <liquibase.host>localhost</liquibase.host>
+                <liquibase.port>1433</liquibase.port>
+                <liquibase.db>liquibase</liquibase.db>
+                <liquibase.user>liquibase</liquibase.user>
+                <liquibase.pass>Abcd123.#</liquibase.pass>
+            </properties>
+        </profile>
+    </profiles>
+    
+    <dependencies>
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.5.3</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <outputFileEncoding>UTF-8</outputFileEncoding>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                    <changeLogFile>src/main/resources/db/masterchangelog.xml</changeLogFile>
+                    <driver>net.sourceforge.jtds.jdbc.Driver</driver>
+                    <url>jdbc:jtds:sqlserver://${liquibase.host}:${liquibase.port}/${liquibase.db}</url>
+                    <username>${liquibase.user}</username>
+                    <password>${liquibase.pass}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

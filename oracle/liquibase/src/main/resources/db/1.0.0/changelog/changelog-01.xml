@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-01.1"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_TEST.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION FN_TEST;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="2" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-01.2"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_TEST_CHAR.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION FN_TEST_CHAR;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="3" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-01.3"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_TEST_NUMBER.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION FN_TEST_NUMBER;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="4" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-01.4"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_TEST_OUT.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION FN_TEST_OUT;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+
+</databaseChangeLog>
+	
+	

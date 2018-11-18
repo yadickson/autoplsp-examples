@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+               http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.autoplsp</groupId>
+    <artifactId>oracle-liquibase</artifactId>
+    <version>1.0.0</version>
+   
+    <name>oracle-liquibase</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <changeLogFile>src/main/resources/db/masterchangelog.xml</changeLogFile>
+    </properties>
+    
+    <profiles>
+        <profile>
+            <id>autoplsp</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <host>localhost</host>
+                <port>1521</port>
+                <db>ORCLCDB</db>
+                <user>AUTOPLSP</user>
+                <pass>AUTOPLSP..</pass>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        
+        <dependency>
+            <groupId>com.oracle.jdbc</groupId>
+                        <artifactId>ojdbc6_g</artifactId>
+                        <version>10.0.3.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <outputFileEncoding>UTF-8</outputFileEncoding>
+                    <changeLogFile>${changeLogFile}</changeLogFile>
+                    <verbose>true</verbose>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                    <driver>oracle.jdbc.driver.OracleDriver</driver>
+                    <url>jdbc:oracle:thin:@${host}:${port}:${db}</url>
+                    <username>${user}</username>
+                    <password>${pass}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+ 
+    <!--repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>datanucleus</id>
+            <name>datanucleus</name>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>datanucleus</id>
+            <name>datanucleus</name>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories-->
+
+</project>

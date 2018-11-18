@@ -1,0 +1,1 @@
+create or replace TYPE TEST_ARRAY AS TABLE OF TEST_OBJECT;

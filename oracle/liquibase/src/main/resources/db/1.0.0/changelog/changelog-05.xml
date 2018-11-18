@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <changeSet id="1" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-05.1"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_OBJECT.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_OBJECT" />
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="2" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-05.2"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_ARRAY.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_ARRAY" />
+        </rollback>
+		
+    </changeSet>
+
+</databaseChangeLog>
+	
+	

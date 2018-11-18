@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <changeSet id="1" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.1"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/NUMERIC_OBJECT.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE NUMERIC_OBJECT FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="2" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.2"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/NUMERIC_ARRAY_OBJECT.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE NUMERIC_ARRAY_OBJECT FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="3" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.3"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/CHAR_OBJECT.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE CHAR_OBJECT FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="4" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.4"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/CHAR_ARRAY_OBJECT.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE CHAR_ARRAY_OBJECT FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="5" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.5"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/NUMERIC_ARRAY.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE NUMERIC_ARRAY FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="6" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.6"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/CHAR_ARRAY.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE CHAR_ARRAY FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="7" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.7"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/TEST_OBJECT.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE TEST_OBJECT FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="8" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.8"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/TEST_ARRAY.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE TEST_ARRAY FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+
+</databaseChangeLog>
+	
+	

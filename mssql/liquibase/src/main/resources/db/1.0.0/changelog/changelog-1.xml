@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+  http://www.liquibase.org/xml/ns/dbchangelog-ext
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- Creacion de tablas -->
+
+    <changeSet id="1" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-1.1" />
+        
+        <createTable tableName="Vehiculos" >
+            <column name="Id" type="BIGINT" autoIncrement="true" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PrimaryKeyVehiculosId"/>
+            </column>
+            <column name="Patente" type="VARCHAR(7)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Marca" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Modelo" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="Vehiculos"/>
+        </rollback>
+
+    </changeSet>
+
+    <changeSet id="2" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-1.2" />
+        
+        <createTable tableName="Parametros">
+            <column name="Codigo" type="INT" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PrimaryKeyParametrosCodigo"/>
+            </column>
+            <column name="Nombre" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Valor" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FechaModificacion" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="Parametros"/>
+        </rollback>
+
+    </changeSet>
+
+</databaseChangeLog>

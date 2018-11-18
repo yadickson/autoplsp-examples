@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <changeSet id="1" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.1"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_CURSOR.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_CURSOR" />
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="2" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.2"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_INSERT.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_INSERT" />
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="3" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.3"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_DELETE.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_DELETE" />
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="4" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.4"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_UPDATE.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_UPDATE" />
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="5" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.5"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_READ.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_READ" />
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="6" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.6"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_INSERT_OBJECT.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_INSERT_OBJECT" />
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="7" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.7"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_INSERT_LOB.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_INSERT_LOB" />
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="8" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-07.8"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_INSERT_ARRAY.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_INSERT_ARRAY" />
+        </rollback>
+		
+    </changeSet>
+
+</databaseChangeLog>
+	
+	

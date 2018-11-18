@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <changeSet id="1" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-02.1"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST" />
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="2" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-02.2"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_CHAR.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_CHAR" />
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="3" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-02.3"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_NUMBER.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_NUMBER" />
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="4" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-02.4"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/procedures/SP_TEST_OUT.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SP_TEST_OUT" />
+        </rollback>
+		
+    </changeSet>
+
+</databaseChangeLog>
+	
+	

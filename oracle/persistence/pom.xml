@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.autoplsp</groupId>
+    <artifactId>oracle-persistence</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>oracle-persistence</name>
+
+    <properties>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <profiles>
+        <profile>
+            <id>autoplsp</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <host>localhost</host>
+                <port>1521</port>
+                <db>ORCLCDB</db>
+                <user>AUTOPLSP</user>
+                <pass>AUTOPLSP..</pass>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.0.6.RELEASE</version>
+            <scope>provided</scope>
+        </dependency> 
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.0.6.RELEASE</version>
+            <scope>provided</scope>
+        </dependency> 
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.oracle.jdbc</groupId>
+            <artifactId>ojdbc6_g</artifactId>
+            <version>10.0.3.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.yadickson</groupId>
+                <artifactId>autoplsp</artifactId>
+                <version>1.7.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generator</goal>
+                        </goals>
+                        <configuration>
+                            <driver>oracle.jdbc.driver.OracleDriver</driver>
+                            <connectionString>jdbc:oracle:thin:@${host}:${port}:${db}</connectionString>
+                            <user>${user}</user>
+                            <pass>${pass}</pass>
+                            <javaDataSourceName>autoplspDS</javaDataSourceName>
+                            <javaJdbcTemplateName>autoplspJdbcTemplate</javaJdbcTemplateName>
+                            <jndiDataSourceName>jdbc/autoplspDS</jndiDataSourceName>
+                            <outParameterCode>PO_COD_RETORNO</outParameterCode>
+                            <outParameterMessage>PO_MSG_RETORNO</outParameterMessage>
+                            <javaPackageName>plsql</javaPackageName>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.oracle.jdbc</groupId>
+                        <artifactId>ojdbc6_g</artifactId>
+                        <version>10.0.3.6</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <!--repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>jahia</id>
+            <name>jahia</name>
+            <url>http://maven.jahia.org/maven2/</url>
+        </repository>
+    </repositories-->
+
+    <!--pluginRepositories>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>datanucleus</id>
+            <name>datanucleus</name>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories-->
+
+</project>

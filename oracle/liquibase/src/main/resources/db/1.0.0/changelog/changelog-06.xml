@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+      http://www.liquibase.org/xml/ns/dbchangelog-ext
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <changeSet id="1" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-06.1"/>
+
+        <createTable tableName="TABLE_FULL" remarks="Table full">
+            <column name="c_numeric" type="NUMBER" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_integer" type="INTEGER" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_smallinteger" type="SMALLINT" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_int" type="INT" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_decimal" type="DECIMAL" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_dec" type="DEC" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_float" type="FLOAT" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_real" type="REAL" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_char" type="VARCHAR2(20 char)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_clob" type="CLOB" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_nclob" type="NCLOB" >
+                <constraints nullable="true" />
+            </column>
+            <column name="c_blob" type="BLOB" >
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+        
+        <rollback>
+            <dropTable tableName="TABLE_FULL" />
+        </rollback>
+		
+    </changeSet>
+    
+    <changeSet id="2" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-06.2"/>
+
+        <createTable tableName="TABLE_TEST" remarks="Table full">
+            <column name="ID" type="NUMBER" >
+                <constraints nullable="true" />
+            </column>
+            <column name="NAME" type="VARCHAR2(200 char)" >
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+        
+        <rollback>
+            <dropTable tableName="TABLE_TEST" />
+        </rollback>
+		
+    </changeSet>
+
+</databaseChangeLog>
+	
+	
