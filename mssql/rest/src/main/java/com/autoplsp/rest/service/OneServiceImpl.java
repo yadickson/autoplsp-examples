@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.autoplsp.rest.dao.OneDao;
+import com.autoplsp.rest.domain.NumericTO;
 import com.autoplsp.rest.domain.TablaTO;
 import com.autoplsp.rest.exception.BusinessException;
+import java.util.List;
 
 @Service
 public final class OneServiceImpl implements OneService {
@@ -69,5 +71,23 @@ public final class OneServiceImpl implements OneService {
     @Override
     public java.util.List<TablaTO> getResultSet() throws BusinessException {
         return oneDao.getResultSet();
+    }
+
+    @Transactional(rollbackFor = BusinessException.class)
+    @Override
+    public Long insertNumericTypes() throws BusinessException {
+        return oneDao.insertNumericTypes();
+    }
+
+    @Transactional(rollbackFor = BusinessException.class)
+    @Override
+    public NumericTO readNumericTypes(Long id) throws BusinessException {
+        return oneDao.readNumericTypes(id);
+    }
+
+    @Transactional(rollbackFor = BusinessException.class)
+    @Override
+    public List<NumericTO> getNumericResultSet() throws BusinessException {
+        return oneDao.getNumericResultSet();
     }
 }

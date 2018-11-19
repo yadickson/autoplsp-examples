@@ -1,5 +1,6 @@
 package com.autoplsp.rest.controller;
 
+import com.autoplsp.rest.domain.NumericTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -95,6 +96,24 @@ public final class OneController {
     @ResponseBody
     public java.util.List<TablaTO> getResultTable() throws BusinessException {
         return oneService.getResultTable();
+    }
+
+    @RequestMapping(value = "/insertNumericTypes", method = RequestMethod.PUT)
+    @ResponseBody
+    public Long insertNumericTypes() throws BusinessException {
+        return oneService.insertNumericTypes();
+    }
+
+    @RequestMapping(value = "/readNumericTypes/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public NumericTO readNumericTypes(@PathVariable(value = "id") Long id) throws BusinessException {
+        return oneService.readNumericTypes(id);
+    }
+
+    @RequestMapping(value = "/getNumericResultSet", method = RequestMethod.GET)
+    @ResponseBody
+    public java.util.List<NumericTO> getNumericResultSet() throws BusinessException {
+        return oneService.getNumericResultSet();
     }
 
 }

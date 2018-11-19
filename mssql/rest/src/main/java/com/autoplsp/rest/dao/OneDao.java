@@ -2,6 +2,7 @@ package com.autoplsp.rest.dao;
 
 import java.io.Serializable;
 
+import com.autoplsp.rest.domain.NumericTO;
 import com.autoplsp.rest.domain.TablaTO;
 import com.autoplsp.rest.exception.BusinessException;
 
@@ -29,4 +30,10 @@ public interface OneDao extends Serializable {
 
     java.util.List<TablaTO> getResultSet() throws BusinessException;
 
+    Long insertNumericTypes() throws BusinessException;
+
+    NumericTO readNumericTypes(final Long id) throws BusinessException;
+
+    java.util.List<NumericTO> getNumericResultSet() throws BusinessException;
+    
 }

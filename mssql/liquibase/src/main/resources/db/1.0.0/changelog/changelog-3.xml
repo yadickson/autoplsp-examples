@@ -47,17 +47,6 @@
     <changeSet id="4" author="yadickson.soto" dbms="mssql">
         <ext:tagDatabase tag="1.0.0-3.4" />
 
-        <createProcedure encoding="utf8" relativeToChangelogFile="true" path="../scripts/procedures/SpObtenerVehiculos.sql" />
-
-        <rollback>
-            <dropProcedure procedureName="SpObtenerVehiculos" />
-        </rollback>
-    
-    </changeSet>
-
-    <changeSet id="5" author="yadickson.soto" dbms="mssql">
-        <ext:tagDatabase tag="1.0.0-3.5" />
-
         <createProcedure encoding="utf8" relativeToChangelogFile="true" path="../scripts/procedures/SpInsertElement.sql" />
 
         <rollback>
@@ -66,8 +55,8 @@
     
     </changeSet>
 
-    <changeSet id="6" author="yadickson.soto" dbms="mssql">
-        <ext:tagDatabase tag="1.0.0-3.6" />
+    <changeSet id="5" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-3.5" />
 
         <sqlFile encoding="utf8" relativeToChangelogFile="true" path="../scripts/functions/FnReturnString.sql" splitStatements="false"/>
 
@@ -79,8 +68,8 @@
     
     </changeSet>
 
-    <changeSet id="7" author="yadickson.soto" dbms="mssql">
-        <ext:tagDatabase tag="1.0.0-3.7" />
+    <changeSet id="6" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-3.6" />
 
         <sqlFile encoding="utf8" relativeToChangelogFile="true" path="../scripts/functions/FnReturnStringWithParam.sql" splitStatements="false"/>
 
@@ -92,8 +81,8 @@
     
     </changeSet>
 
-    <changeSet id="8" author="yadickson.soto" dbms="mssql">
-        <ext:tagDatabase tag="1.0.0-3.8" />
+    <changeSet id="7" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-3.7" />
 
         <sqlFile encoding="utf8" relativeToChangelogFile="true" path="../scripts/procedures/SpListarTabla.sql" splitStatements="false"/>
 
@@ -103,13 +92,46 @@
     
     </changeSet>
 
-    <changeSet id="9" author="yadickson.soto" dbms="mssql">
-        <ext:tagDatabase tag="1.0.0-3.9" />
+    <changeSet id="8" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-3.8" />
 
         <sqlFile encoding="utf8" relativeToChangelogFile="true" path="../scripts/procedures/SpListarTablas.sql" splitStatements="false"/>
 
         <rollback>
             <dropProcedure procedureName="SpListarTablas" />
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="9" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-3.9" />
+
+        <sqlFile encoding="utf8" relativeToChangelogFile="true" path="../scripts/procedures/SpInsertNumericTypes.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SpInsertNumericTypes" />
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="10" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-3.10" />
+
+        <sqlFile encoding="utf8" relativeToChangelogFile="true" path="../scripts/procedures/SpReadNumericTypes.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SpReadNumericTypes" />
+        </rollback>
+    
+    </changeSet>
+    
+    <changeSet id="11" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-3.11" />
+
+        <sqlFile encoding="utf8" relativeToChangelogFile="true" path="../scripts/procedures/SpNumericTypes.sql" splitStatements="false"/>
+
+        <rollback>
+            <dropProcedure procedureName="SpNumericTypes" />
         </rollback>
     
     </changeSet>

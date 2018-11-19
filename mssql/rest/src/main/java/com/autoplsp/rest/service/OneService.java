@@ -1,5 +1,6 @@
 package com.autoplsp.rest.service;
 
+import com.autoplsp.rest.domain.NumericTO;
 import java.io.Serializable;
 
 import com.autoplsp.rest.domain.TablaTO;
@@ -22,4 +23,10 @@ public interface OneService extends Serializable {
     java.util.List<TablaTO> getResultTable() throws BusinessException;
 
     java.util.List<TablaTO> getResultSet() throws BusinessException;
+
+    Long insertNumericTypes() throws BusinessException;
+
+    NumericTO readNumericTypes(final Long id) throws BusinessException;
+
+    java.util.List<NumericTO> getNumericResultSet() throws BusinessException;
 }

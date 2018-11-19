@@ -1,5 +1,6 @@
 package com.autoplsp.rest.dao;
 
+import com.autoplsp.rest.domain.NumericTO;
 import java.sql.SQLException;
 
 import plsql.domain.SpObtenerVehiculoIN;
@@ -21,12 +22,21 @@ import com.autoplsp.rest.exception.BusinessException;
 import plsql.domain.FnListarTablaOUT;
 import plsql.domain.FnListarTablaReturnValueRS;
 import plsql.domain.SpInsertElementIN;
+import plsql.domain.SpInsertNumericTypesIN;
+import plsql.domain.SpInsertNumericTypesOUT;
 import plsql.domain.SpListarTablaOUT;
 import plsql.domain.SpListarTablaIN;
 import plsql.domain.SpListarTablaReturnValueRS;
+import plsql.domain.SpNumericTypesOUT;
+import plsql.domain.SpNumericTypesReturnValueRS;
+import plsql.domain.SpReadNumericTypesIN;
+import plsql.domain.SpReadNumericTypesOUT;
 import plsql.repository.FnListarTablaDAO;
 import plsql.repository.SpFiltrarVehiculosDAO;
+import plsql.repository.SpInsertNumericTypesDAO;
 import plsql.repository.SpListarTablaDAO;
+import plsql.repository.SpNumericTypesDAO;
+import plsql.repository.SpReadNumericTypesDAO;
 
 @Repository
 public final class OneDaoImpl implements OneDao {
@@ -53,6 +63,15 @@ public final class OneDaoImpl implements OneDao {
 
     @Autowired
     private SpListarTablaDAO listarTablaDAO;
+
+    @Autowired
+    private SpInsertNumericTypesDAO insertNumericTypesDAO;
+
+    @Autowired
+    private SpReadNumericTypesDAO readNumericTypesDAO;
+
+    @Autowired
+    private SpNumericTypesDAO numericTypesDAO;
 
     @Override
     public String toDo(final String text) {
@@ -215,6 +234,83 @@ public final class OneDaoImpl implements OneDao {
                 to.setMarca(rs.getMarca());
                 to.setModelo(rs.getModelo());
                 to.setPatente(rs.getPatente());
+                lista.add(to);
+            }
+
+            return lista;
+
+        } catch (SQLException ex) {
+            throw new BusinessException(0L, "error get resultset", ex);
+        }
+
+    }
+
+    @Override
+    public Long insertNumericTypes() throws BusinessException {
+
+        try {
+            SpInsertNumericTypesIN params = new SpInsertNumericTypesIN(
+                    1,
+                    20L,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7.5F,
+                    8.5D,
+                    true,
+                    10,
+                    11);
+
+            SpInsertNumericTypesOUT out;
+            out = insertNumericTypesDAO.execute(params);
+
+            return out.getId().longValue();
+
+        } catch (SQLException ex) {
+            throw new BusinessException(0L, "error insert", ex);
+        }
+
+    }
+
+    @Override
+    public NumericTO readNumericTypes(final Long id) throws BusinessException {
+
+        try {
+            SpReadNumericTypesIN params = new SpReadNumericTypesIN(id);
+
+            SpReadNumericTypesOUT out;
+            out = readNumericTypesDAO.execute(params);
+
+            NumericTO numeric = new NumericTO();
+
+            numeric.setId(id);
+            numeric.setCInt(out.getCint().intValue());
+            numeric.setCBigInt(out.getCbigInt().longValue());
+
+            return numeric;
+
+        } catch (SQLException ex) {
+            throw new BusinessException(0L, "error insert", ex);
+        }
+
+    }
+
+    @Override
+    public java.util.List<NumericTO> getNumericResultSet() throws BusinessException {
+
+        try {
+
+            SpNumericTypesOUT out = numericTypesDAO.execute();
+
+            java.util.List<NumericTO> lista = new java.util.ArrayList<NumericTO>();
+
+            for (SpNumericTypesReturnValueRS rs : out.getReturnValue()) {
+
+                NumericTO to = new NumericTO();
+
+                to.setCInt(rs.getCint().intValue());
+                to.setCBigInt(rs.getCbigInt().longValue());
                 lista.add(to);
             }
 

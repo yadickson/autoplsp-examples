@@ -18,6 +18,6 @@
 
     <mvc:annotation-driven/>
 
-    <import resource="classpath*:spring/database/autoplsp-persistence.xml" />
+    <import resource="classpath*:spring/database/oracle-persistence.xml" />
 
 </beans>

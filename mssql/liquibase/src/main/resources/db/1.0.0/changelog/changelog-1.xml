@@ -57,4 +57,142 @@
 
     </changeSet>
 
+    <changeSet id="3" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-1.3" />
+        
+        <createTable tableName="NumericTypes">
+            <column name="Id" type="BIGINT" autoIncrement="true" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PrimaryKeyNumericTypesId"/>
+            </column>
+            <column name="CInt" type="INT" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="CSmallInt" type="SMALLINT" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="CTinyInt" type="TINYINT" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="CBigInt" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CDecimal" type="DECIMAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CNumeric" type="NUMERIC">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CFloat" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CReal" type="REAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CBit" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CMoney" type="MONEY">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CSmallMoney" type="SMALLMONEY">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="NumericTypes"/>
+        </rollback>
+
+    </changeSet>
+
+    <changeSet id="4" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-1.4" />
+        
+        <createTable tableName="CharTypes">
+            <column name="Id" type="BIGINT" autoIncrement="true" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PrimaryKeyCharTypesId"/>
+            </column>
+            <column name="CChar" type="CHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CText" type="TEXT(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CVarChar" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CNChar" type="NCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CNText" type="NTEXT(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CNVarChar" type="NVARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+                    
+        <rollback>
+            <dropTable tableName="CharTypes"/>
+        </rollback>
+
+    </changeSet>
+
+    <changeSet id="5" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-1.5" />
+        
+        <createTable tableName="BinaryTypes">
+            <column name="Id" type="BIGINT" autoIncrement="true" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PrimaryKeyBinaryTypesId"/>
+            </column>
+            <column name="CBinary" type="BINARY(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CVarBinary" type="VARBINARY(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CImage" type="IMAGE(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="BinaryTypes"/>
+        </rollback>
+
+    </changeSet>
+
+    <changeSet id="6" author="yadickson.soto" dbms="mssql">
+        <ext:tagDatabase tag="1.0.0-1.6" />
+        
+        <createTable tableName="DateTypes">
+            <column name="Id" type="BIGINT" autoIncrement="true" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PrimaryKeyDateTypesId"/>
+            </column>
+            <column name="CDate" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CTime" type="TIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CDateTime" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CDateTimeOffSet" type="DATETIMEOFFSET">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CDateTime2" type="DATETIME2">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CSmallDateTime" type="SMALLDATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="DateTypes"/>
+        </rollback>
+
+    </changeSet>
+
 </databaseChangeLog>

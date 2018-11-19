@@ -10,6 +10,7 @@
     <properties>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
+        <driver.version>1.3.1</driver.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
@@ -62,7 +63,7 @@
         <dependency>
             <groupId>net.sourceforge.jtds</groupId>
             <artifactId>jtds</artifactId>
-            <version>1.3.1</version>
+            <version>${driver.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -73,7 +74,7 @@
             <plugin>
                 <groupId>com.github.yadickson</groupId>
                 <artifactId>autoplsp</artifactId>
-                <version>1.7.0-SNAPSHOT</version>
+                <version>1.7.2-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <goals>
@@ -90,16 +91,6 @@
                             <outParameterCode>PO_COD_RETORNO</outParameterCode>
                             <outParameterMessage>PO_MSG_RETORNO</outParameterMessage>
                             <javaPackageName>plsql</javaPackageName>
-                            <includes>
-                                <include>FnReturnString</include>
-                                <include>FnReturnStringWithParam</include>
-                                <include>FnListarTabla</include>
-                                <include>SpFiltrarVehiculos</include>
-                                <include>SpListarTabla</include>
-                                <include>SpObtenerVehiculo</include>
-                                <include>SpInsertElement</include>
-                                <include>SpListarTablas</include>
-                            </includes>
                         </configuration>
                     </execution>
                 </executions>
@@ -107,7 +98,7 @@
                     <dependency>
                         <groupId>net.sourceforge.jtds</groupId>
                         <artifactId>jtds</artifactId>
-                        <version>1.3.1</version>
+                        <version>${driver.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -139,33 +130,5 @@
 
         </plugins>
     </build>
-
-    <!--repositories>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>jahia</id>
-            <name>jahia</name>
-            <url>http://maven.jahia.org/maven2/</url>
-        </repository>
-    </repositories-->
-
-    <!--pluginRepositories>
-        <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>datanucleus</id>
-            <name>datanucleus</name>
-            <url>http://www.datanucleus.org/downloads/maven2/</url>
-        </pluginRepository>
-    </pluginRepositories-->
 
 </project>
