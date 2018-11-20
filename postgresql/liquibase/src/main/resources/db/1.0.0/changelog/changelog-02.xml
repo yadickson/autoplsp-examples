@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- Creacion de paquetes -->
+
+    <changeSet id="1" author="yadickson.soto" dbms="postgresql">
+        <ext:tagDatabase tag="1.0.0-02.1" />
+        <createProcedure procedureName="SP_EXAMPLE" relativeToChangelogFile="true" path="../scripts/procedures/SP_EXAMPLE.sql" encoding="utf8" />
+
+        <rollback>
+            <dropProcedure procedureName="SP_EXAMPLE" />;
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="2" author="yadickson.soto" dbms="postgresql">
+        <ext:tagDatabase tag="1.0.0-02.2" />
+        <createProcedure procedureName="SP_PARAMETER" relativeToChangelogFile="true" path="../scripts/procedures/SP_PARAMETER.sql" encoding="utf8" />
+
+        <rollback>
+            <dropProcedure procedureName="SP_PARAMETER" />;
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="3" author="yadickson.soto" dbms="postgresql">
+        <ext:tagDatabase tag="1.0.0-02.3" />
+        <createProcedure procedureName="SP_PARAMETERS" relativeToChangelogFile="true" path="../scripts/procedures/SP_PARAMETERS.sql" encoding="utf8" />
+
+        <rollback>
+            <dropProcedure procedureName="SP_PARAMETERS" />;
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="4" author="yadickson.soto" dbms="postgresql">
+        <ext:tagDatabase tag="1.0.0-02.4" />
+        <sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_EXAMPLE.sql" encoding="utf8" endDelimiter="$$" />
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION IF EXISTS FN_EXAMPLE(real) CASCADE;]]>
+            </sql>
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="5" author="yadickson.soto" dbms="postgresql">
+        <ext:tagDatabase tag="1.0.0-02.5" />
+        <sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_PARAMETER.sql" encoding="utf8" endDelimiter="$$" />
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION IF EXISTS FN_PARAMETER(integer) CASCADE;]]>
+            </sql>
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="6" author="yadickson.soto" dbms="postgresql">
+        <ext:tagDatabase tag="1.0.0-02.6" />
+        <sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_PARAMETERS.sql" encoding="utf8" endDelimiter="$$" />
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION IF EXISTS FN_PARAMETERS(integer, varchar) CASCADE;]]>
+            </sql>
+        </rollback>
+    
+    </changeSet>
+
+    <changeSet id="7" author="yadickson.soto" dbms="postgresql">
+        <ext:tagDatabase tag="1.0.0-02.7" />
+        <sqlFile relativeToChangelogFile="true" path="../scripts/functions/FN_RETURN_VOID.sql" encoding="utf8" endDelimiter="$$" />
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP FUNCTION IF EXISTS FN_RETURN_VOID(integer, integer) CASCADE;]]>
+            </sql>
+        </rollback>
+    
+    </changeSet>
+
+</databaseChangeLog>
