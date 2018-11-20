@@ -1,0 +1,2 @@
+CREATE TYPE CharType
+FROM varchar(11) NOT NULL;

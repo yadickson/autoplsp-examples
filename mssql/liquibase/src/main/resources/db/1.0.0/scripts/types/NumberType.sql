@@ -1,0 +1,2 @@
+CREATE TYPE NumberType
+FROM bigint NOT NULL;
