@@ -23,8 +23,8 @@
             <properties>
                 <host>localhost</host>
                 <port>1433</port>
-                <db>liquibase</db>
-                <user>liquibase</user>
+                <db>mssql</db>
+                <user>mssql</user>
                 <pass>Abcd123.#</pass>
             </properties>
         </profile>

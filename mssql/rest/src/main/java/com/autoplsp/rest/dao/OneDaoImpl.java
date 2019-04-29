@@ -3,40 +3,40 @@ package com.autoplsp.rest.dao;
 import com.autoplsp.rest.domain.NumericTO;
 import java.sql.SQLException;
 
-import plsql.domain.SpObtenerVehiculoIN;
-import plsql.domain.SpObtenerVehiculoOUT;
-import plsql.domain.FnReturnStringOUT;
-import plsql.domain.FnReturnStringWithParamIN;
-import plsql.domain.FnReturnStringWithParamOUT;
-import plsql.repository.SpInsertElementDAO;
+import plsql.domain.DboSpObtenerVehiculoIN;
+import plsql.domain.DboSpObtenerVehiculoOUT;
+import plsql.domain.DboFnReturnStringOUT;
+import plsql.domain.DboFnReturnStringWithParamIN;
+import plsql.domain.DboFnReturnStringWithParamOUT;
+import plsql.repository.DboSpInsertElementDAO;
 
-import plsql.repository.SpObtenerVehiculoDAO;
-import plsql.repository.FnReturnStringDAO;
-import plsql.repository.FnReturnStringWithParamDAO;
+import plsql.repository.DboSpObtenerVehiculoDAO;
+import plsql.repository.DboFnReturnStringDAO;
+import plsql.repository.DboFnReturnStringWithParamDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.autoplsp.rest.domain.TablaTO;
 import com.autoplsp.rest.exception.BusinessException;
-import plsql.domain.FnListarTablaOUT;
-import plsql.domain.FnListarTablaReturnValueRS;
-import plsql.domain.SpInsertElementIN;
-import plsql.domain.SpInsertNumericTypesIN;
-import plsql.domain.SpInsertNumericTypesOUT;
-import plsql.domain.SpListarTablaOUT;
-import plsql.domain.SpListarTablaIN;
-import plsql.domain.SpListarTablaReturnValueRS;
-import plsql.domain.SpNumericTypesOUT;
-import plsql.domain.SpNumericTypesReturnValueRS;
-import plsql.domain.SpReadNumericTypesIN;
-import plsql.domain.SpReadNumericTypesOUT;
-import plsql.repository.FnListarTablaDAO;
-import plsql.repository.SpFiltrarVehiculosDAO;
-import plsql.repository.SpInsertNumericTypesDAO;
-import plsql.repository.SpListarTablaDAO;
-import plsql.repository.SpNumericTypesDAO;
-import plsql.repository.SpReadNumericTypesDAO;
+import plsql.domain.DboFnListarTablaOUT;
+import plsql.domain.DboFnListarTablaReturnValueRS;
+import plsql.domain.DboSpInsertElementIN;
+import plsql.domain.DboSpInsertNumericTypesIN;
+import plsql.domain.DboSpInsertNumericTypesOUT;
+import plsql.domain.DboSpListarTablaOUT;
+import plsql.domain.DboSpListarTablaIN;
+import plsql.domain.DboSpListarTablaReturnValueRS;
+import plsql.domain.DboSpNumericTypesOUT;
+import plsql.domain.DboSpNumericTypesReturnValueRS;
+import plsql.domain.DboSpReadNumericTypesIN;
+import plsql.domain.DboSpReadNumericTypesOUT;
+import plsql.repository.DboFnListarTablaDAO;
+import plsql.repository.DboSpFiltrarVehiculosDAO;
+import plsql.repository.DboSpInsertNumericTypesDAO;
+import plsql.repository.DboSpListarTablaDAO;
+import plsql.repository.DboSpNumericTypesDAO;
+import plsql.repository.DboSpReadNumericTypesDAO;
 
 @Repository
 public final class OneDaoImpl implements OneDao {
@@ -44,34 +44,34 @@ public final class OneDaoImpl implements OneDao {
     static final long serialVersionUID = 1L;
 
     @Autowired
-    private SpInsertElementDAO insertElementDAO;
+    private DboSpInsertElementDAO insertElementDAO;
 
     @Autowired
-    private SpObtenerVehiculoDAO obtenerElementDAO;
+    private DboSpObtenerVehiculoDAO obtenerElementDAO;
 
     @Autowired
-    private FnReturnStringDAO returnStringDAO;
+    private DboFnReturnStringDAO returnStringDAO;
 
     @Autowired
-    private FnReturnStringWithParamDAO returnStringWithParamDAO;
+    private DboFnReturnStringWithParamDAO returnStringWithParamDAO;
 
     @Autowired
-    private SpFiltrarVehiculosDAO filtrarVehiculosDAO;
+    private DboSpFiltrarVehiculosDAO filtrarVehiculosDAO;
 
     @Autowired
-    private FnListarTablaDAO fnListarTablaDAO;
+    private DboFnListarTablaDAO fnListarTablaDAO;
 
     @Autowired
-    private SpListarTablaDAO listarTablaDAO;
+    private DboSpListarTablaDAO listarTablaDAO;
 
     @Autowired
-    private SpInsertNumericTypesDAO insertNumericTypesDAO;
+    private DboSpInsertNumericTypesDAO insertNumericTypesDAO;
 
     @Autowired
-    private SpReadNumericTypesDAO readNumericTypesDAO;
+    private DboSpReadNumericTypesDAO readNumericTypesDAO;
 
     @Autowired
-    private SpNumericTypesDAO numericTypesDAO;
+    private DboSpNumericTypesDAO numericTypesDAO;
 
     @Override
     public String toDo(final String text) {
@@ -82,7 +82,7 @@ public final class OneDaoImpl implements OneDao {
     public void insert(final String patente, final String marca, final String modelo) throws BusinessException {
 
         try {
-            SpInsertElementIN params = new SpInsertElementIN(patente, marca, modelo);
+            DboSpInsertElementIN params = new DboSpInsertElementIN(patente, marca, modelo);
             insertElementDAO.execute(params);
 
         } catch (SQLException ex) {
@@ -95,7 +95,7 @@ public final class OneDaoImpl implements OneDao {
     public void update(final Long id, final String name) throws BusinessException {
         /*
         try {
-            SpTestUpdateIN params = new SpTestUpdateIN(id, name);
+            DboSpTestUpdateIN params = new DboSpTestUpdateIN(id, name);
             spTestUpdateDAO.execute(params);
 
         } catch (SQLException ex) {
@@ -108,8 +108,8 @@ public final class OneDaoImpl implements OneDao {
     public void read(final Long id) throws BusinessException {
 
         try {
-            SpObtenerVehiculoIN params = new SpObtenerVehiculoIN(id);
-            SpObtenerVehiculoOUT out = obtenerElementDAO.execute(params);
+            DboSpObtenerVehiculoIN params = new DboSpObtenerVehiculoIN(id);
+            DboSpObtenerVehiculoOUT out = obtenerElementDAO.execute(params);
 
             System.out.println("Marca: " + out.getMarca() + " Modelo: " + out.getModelo() + " Patente: " + out.getPatente());
 
@@ -123,7 +123,7 @@ public final class OneDaoImpl implements OneDao {
     public void delete(final Long id) throws BusinessException {
         /*
         try {
-            SpTestDeleteIN params = new SpTestDeleteIN(id);
+            DboSpTestDeleteIN params = new DboSpTestDeleteIN(id);
             spTestDeleteDAO.execute(params);
 
         } catch (SQLException ex) {
@@ -137,7 +137,7 @@ public final class OneDaoImpl implements OneDao {
         /*
         try {
             TestObjectObject object = new TestObjectObject(id, name);
-            SpTestInsertObjectIN params = new SpTestInsertObjectIN(object);
+            DboSpTestInsertObjectIN params = new DboSpTestInsertObjectIN(object);
             spTestInsertObjectDAO.execute(params);
 
         } catch (SQLException ex) {
@@ -153,7 +153,7 @@ public final class OneDaoImpl implements OneDao {
             TestObjectObject object = new TestObjectObject(id, name);
             TestArrayTable array = new TestArrayTable();
             array.add(object);
-            SpTestInsertArrayIN params = new SpTestInsertArrayIN(array);
+            DboSpTestInsertArrayIN params = new DboSpTestInsertArrayIN(array);
             spTestInsertArrayDAO.execute(params);
 
         } catch (SQLException ex) {
@@ -167,7 +167,7 @@ public final class OneDaoImpl implements OneDao {
 
         try {
 
-            FnReturnStringOUT out = returnStringDAO.execute();
+            DboFnReturnStringOUT out = returnStringDAO.execute();
             return out.getReturnValue();
 
         } catch (SQLException ex) {
@@ -180,8 +180,8 @@ public final class OneDaoImpl implements OneDao {
     public String getString(final String text) throws BusinessException {
 
         try {
-            FnReturnStringWithParamIN params = new FnReturnStringWithParamIN(text);
-            FnReturnStringWithParamOUT out = returnStringWithParamDAO.execute(params);
+            DboFnReturnStringWithParamIN params = new DboFnReturnStringWithParamIN(text);
+            DboFnReturnStringWithParamOUT out = returnStringWithParamDAO.execute(params);
             return out.getReturnValue();
 
         } catch (SQLException ex) {
@@ -195,11 +195,11 @@ public final class OneDaoImpl implements OneDao {
 
         try {
 
-            FnListarTablaOUT out = fnListarTablaDAO.execute();
+            DboFnListarTablaOUT out = fnListarTablaDAO.execute();
 
             java.util.List<TablaTO> lista = new java.util.ArrayList<TablaTO>();
 
-            for (FnListarTablaReturnValueRS rs : out.getReturnValue()) {
+            for (DboFnListarTablaReturnValueRS rs : out.getReturnValue()) {
 
                 TablaTO to = new TablaTO();
                 to.setId(rs.getId().intValue());
@@ -222,12 +222,12 @@ public final class OneDaoImpl implements OneDao {
 
         try {
 
-            SpListarTablaIN params = new SpListarTablaIN(10);
-            SpListarTablaOUT out = listarTablaDAO.execute(params);
+            DboSpListarTablaIN params = new DboSpListarTablaIN(10);
+            DboSpListarTablaOUT out = listarTablaDAO.execute(params);
 
             java.util.List<TablaTO> lista = new java.util.ArrayList<TablaTO>();
 
-            for (SpListarTablaReturnValueRS rs : out.getReturnValue()) {
+            for (DboSpListarTablaReturnValueRS rs : out.getReturnValue()) {
 
                 TablaTO to = new TablaTO();
                 to.setId(rs.getId().intValue());
@@ -249,7 +249,7 @@ public final class OneDaoImpl implements OneDao {
     public Long insertNumericTypes() throws BusinessException {
 
         try {
-            SpInsertNumericTypesIN params = new SpInsertNumericTypesIN(
+            DboSpInsertNumericTypesIN params = new DboSpInsertNumericTypesIN(
                     1,
                     20L,
                     3,
@@ -262,7 +262,7 @@ public final class OneDaoImpl implements OneDao {
                     10,
                     11);
 
-            SpInsertNumericTypesOUT out;
+            DboSpInsertNumericTypesOUT out;
             out = insertNumericTypesDAO.execute(params);
 
             return out.getId().longValue();
@@ -277,9 +277,9 @@ public final class OneDaoImpl implements OneDao {
     public NumericTO readNumericTypes(final Long id) throws BusinessException {
 
         try {
-            SpReadNumericTypesIN params = new SpReadNumericTypesIN(id);
+            DboSpReadNumericTypesIN params = new DboSpReadNumericTypesIN(id);
 
-            SpReadNumericTypesOUT out;
+            DboSpReadNumericTypesOUT out;
             out = readNumericTypesDAO.execute(params);
 
             NumericTO numeric = new NumericTO();
@@ -301,11 +301,11 @@ public final class OneDaoImpl implements OneDao {
 
         try {
 
-            SpNumericTypesOUT out = numericTypesDAO.execute();
+            DboSpNumericTypesOUT out = numericTypesDAO.execute();
 
             java.util.List<NumericTO> lista = new java.util.ArrayList<NumericTO>();
 
-            for (SpNumericTypesReturnValueRS rs : out.getReturnValue()) {
+            for (DboSpNumericTypesReturnValueRS rs : out.getReturnValue()) {
 
                 NumericTO to = new NumericTO();
 
