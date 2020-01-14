@@ -35,10 +35,9 @@
     <dependencies>
         
         <dependency>
-            <groupId>oracle</groupId>
+            <groupId>com.oracle.jdbc</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.3</version>
-            <scope>provided</scope>
+            <version>11.1.0.6.0</version>
         </dependency>
 
     </dependencies>
@@ -62,32 +61,20 @@
             </plugin>
         </plugins>
     </build>
- 
+
     <repositories>
         <repository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>datanucleus</id>
-            <name>datanucleus</name>
-            <url>http://www.datanucleus.org/downloads/maven2/</url>
+            <id>boundless</id>
+            <name>Boundless Maven Repository</name>
+            <url>http://repo.boundlessgeo.com/main</url>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>datanucleus</id>
-            <name>datanucleus</name>
-            <url>http://www.datanucleus.org/downloads/maven2/</url>
+            <id>boundless</id>
+            <name>Boundless Maven Repository</name>
+            <url>http://repo.boundlessgeo.com/main</url>
         </pluginRepository>
     </pluginRepositories>
 
