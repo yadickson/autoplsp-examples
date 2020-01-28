@@ -9,21 +9,41 @@
     <name>oracle-rest</name>
 
     <properties>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <source.level>1.6</source.level>
-        <target.level>1.6</target.level>
 
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <maven.javadoc.version>2.9.1</maven.javadoc.version>
+        <maven.source.version>3.0.1</maven.source.version>
+        <maven.surefire.version>2.22.2</maven.surefire.version>
+        <maven.checkstyle.version>3.1.0</maven.checkstyle.version>
+        <maven.pmd.version>3.12.0</maven.pmd.version>
+        <maven.findbugs.version>3.0.5</maven.findbugs.version>
+        <maven.sonar.version>3.2</maven.sonar.version>
+
+        <jacoco.version>0.8.5</jacoco.version>
+        <junit.version>4.12</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+        <powermock.version>1.7.4</powermock.version>
+
+        <spring.version>4.3.12.RELEASE</spring.version>
+        <spring.security.version>4.2.13.RELEASE</spring.security.version>
+        <spring.test.version>4.3.12.RELEASE</spring.test.version>
+        <spring.security.test.version>4.2.13.RELEASE</spring.security.test.version>
+
+        <lombok.version>1.16.20</lombok.version>
+        <logback.version>1.1.3</logback.version>
+        <slf4j.version>1.7.12</slf4j.version>
+        <springfox.version>2.9.2</springfox.version>
+        <jackson.version>2.8.7</jackson.version>
+        <annotation.version>1.3.2</annotation.version>
+        <apache.io.version>2.6</apache.io.version>
+        <servlet.version>3.0.1</servlet.version>
+        
         <dist.id>${project.artifactId}</dist.id>
         <dist.name>${project.name}</dist.name>
         <project.root>${basedir}</project.root>
-
-        <jacoco.version>0.7.9</jacoco.version>
-        <junit.version>4.12</junit.version>
-        <mockito.version>1.9.5</mockito.version>
-        <servlet.version>3.0.1</servlet.version>
-        <spring.version>4.2.1.RELEASE</spring.version>
-        <spring.test.version>4.2.1.RELEASE</spring.test.version>
-        <lombok.version>1.16.20</lombok.version>
 
     </properties>
     
@@ -34,6 +54,7 @@
             </activation>
             <properties>
                 <lombok.version>1.18.2</lombok.version>
+                <maven.sonar.version>3.7.0.1746</maven.sonar.version>
             </properties>
         </profile>
 
@@ -132,8 +153,19 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.5.0</version>
-            <scope>provided</scope>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
@@ -148,6 +180,18 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
         </dependency>
 
         <dependency>
@@ -188,17 +232,8 @@
                 <directory>src/test/resources</directory>
             </testResource>
         </testResources>
+
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
-                <configuration>
-                    <compilerArgument>-Xlint:all</compilerArgument>
-                    <showWarnings>true</showWarnings>
-                    <showDeprecation>true</showDeprecation>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -227,10 +262,27 @@
                 </configuration>
             </plugin>
 
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>${maven.javadoc.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <failOnError>true</failOnError>
+                    <linksource>true</linksource>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -244,7 +296,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>${maven.source.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -255,53 +307,17 @@
                 </executions>
             </plugin>
 
-            <!--plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <aggregate>true</aggregate>
-                    <formats>
-                        <format>xml</format>
-                        <format>html</format>
-                    </formats>
-                    <check>
-                        <branchRate>85</branchRate>
-                        <lineRate>85</lineRate>
-                        <haltOnFailure>false</haltOnFailure>
-                        <totalBranchRate>85</totalBranchRate>
-                        <totalLineRate>85</totalLineRate>
-                        <packageLineRate>85</packageLineRate>
-                        <packageBranchRate>85</packageBranchRate>
-                    </check>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>cobertura</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>check</goal>
-                            <goal>cobertura</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -310,10 +326,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>${maven.checkstyle.version}</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
-                    <consoleOutput>false</consoleOutput>
+                    <consoleOutput>true</consoleOutput>
                     <failOnViolation>false</failOnViolation>
                     <linkXRef>false</linkXRef>
                 </configuration>
@@ -331,9 +347,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.9.0</version>
+                <version>${maven.pmd.version}</version>
                 <configuration>
                     <failOnViolation>false</failOnViolation>
+                    <printFailingErrors>true</printFailingErrors>
+                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+                    <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
                 </configuration>
                 <executions>
                     <execution>
@@ -346,38 +365,18 @@
                     </execution>
                 </executions>
             </plugin>
-            
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>3.1.3</version>
-                <configuration>
-                    <effort>Max</effort>
-                    <threshold>Low</threshold>
-                    <xmlOutput>true</xmlOutput>
-                    <failOnError>false</failOnError>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>spotbugs</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.5</version>
+                <version>${maven.findbugs.version}</version>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
                     <xmlOutput>true</xmlOutput>
                     <failOnError>false</failOnError>
-                    <findbugsXmlOutputDirectory>${project.build.directory}/findbugs/</findbugsXmlOutputDirectory>
+                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+                    <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
                 </configuration>
                 <executions>
                     <execution>
@@ -388,7 +387,13 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin-->
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${maven.sonar.version}</version>
+            </plugin>
 
         </plugins>
     </build>

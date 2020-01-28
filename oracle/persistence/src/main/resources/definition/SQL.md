@@ -1,0 +1,533 @@
+# object definitions
+
+```sql
+CREATE OR REPLACE TYPE CHAR_OBJECT AS OBJECT
+(
+    C1 CHAR(100 CHAR),
+    C2 VARCHAR2(100 CHAR),
+    C3 VARCHAR2(100 CHAR),
+    C4 NCHAR(100 CHAR),
+    C5 NVARCHAR2(100 CHAR)
+)
+```
+
+```sql
+CREATE OR REPLACE TYPE NUMERIC_OBJECT AS OBJECT
+(
+    C1 NUMBER,
+    C2 DECIMAL,
+    C3 DECIMAL,
+    C4 INTEGER,
+    C5 INTEGER,
+    C6 SMALLINT,
+    C7 FLOAT,
+    C9 REAL,
+    C10 BINARY_FLOAT,
+    C11 BINARY_DOUBLE
+)
+```
+
+```sql
+CREATE OR REPLACE TYPE TEST_OBJECT AS OBJECT
+(
+    ID NUMBER,
+    NAME VARCHAR2(100 CHAR)
+)
+```
+
+```sql
+CREATE OR REPLACE TYPE CHAR_ARRAY AS TABLE OF VARCHAR2(100 CHAR);
+```
+
+```sql
+CREATE OR REPLACE TYPE CHAR_ARRAY_OBJECT AS TABLE OF CHAR_OBJECT;
+```
+
+```sql
+CREATE OR REPLACE TYPE NUMERIC_ARRAY AS TABLE OF NUMBER;
+```
+
+```sql
+CREATE OR REPLACE TYPE NUMERIC_ARRAY_OBJECT AS TABLE OF NUMERIC_OBJECT;
+```
+
+```sql
+CREATE OR REPLACE TYPE TEST_ARRAY AS TABLE OF TEST_OBJECT;
+```
+
+# Procedure definitions
+
+```sql
+CREATE OR REPLACE FUNCTION FN_TEST
+(
+    return_value     OUT  NUMBER
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE FUNCTION FN_TEST_CHAR
+(
+    return_value     OUT  NUMBER,
+    PI_C1            IN   CHAR,
+    PI_C2            IN   VARCHAR2,
+    PI_C3            IN   VARCHAR2,
+    PI_C4            IN   NCHAR,
+    PI_C5            IN   NVARCHAR2
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE FUNCTION FN_TEST_LOB
+(
+    return_value     OUT  NUMBER,
+    PI_C1            IN   CLOB,
+    PI_C2            IN   NCLOB,
+    PI_C3            IN   BLOB,
+    PO_C4            OUT  CLOB,
+    PO_C5            OUT  NCLOB,
+    PO_C6            OUT  BLOB
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE FUNCTION FN_TEST_NUMBER
+(
+    return_value     OUT  NUMBER,
+    PI_C1            IN   NUMBER,
+    PI_C2            IN   NUMBER,
+    PI_C3            IN   NUMBER,
+    PI_C4            IN   NUMBER,
+    PI_C5            IN   NUMBER,
+    PI_C6            IN   NUMBER,
+    PI_C7            IN   FLOAT,
+    PI_C9            IN   FLOAT,
+    PI_C10           IN   BINARY_FLOAT,
+    PI_C11           IN   BINARY_DOUBLE
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE FUNCTION FN_TEST_OUT
+(
+    return_value     OUT  NUMBER,
+    PO_C1            OUT  CHAR,
+    PO_C2            OUT  VARCHAR2,
+    PO_C3            OUT  VARCHAR2,
+    PO_C4            OUT  NCHAR,
+    PO_C5            OUT  NVARCHAR2,
+    PO_C6            OUT  NUMBER,
+    PO_C7            OUT  NUMBER,
+    PO_C8            OUT  NUMBER,
+    PO_C9            OUT  NUMBER,
+    PO_C10           OUT  NUMBER,
+    PO_C11           OUT  NUMBER,
+    PO_C12           OUT  FLOAT,
+    PO_C13           OUT  FLOAT,
+    PO_C14           OUT  BINARY_FLOAT,
+    PO_C15           OUT  BINARY_DOUBLE,
+    COUNTER          OUT  NUMBER,
+    MESSAGE          OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_ARRAY
+(
+    PI_C1     IN  NUMERIC_ARRAY,
+    PI_C2     IN  CHAR_ARRAY,
+    PO_C3     IN  NUMERIC_ARRAY,
+    PO_C4     IN  CHAR_ARRAY,
+    PO_C5     IN  NUMERIC_ARRAY_OBJECT,
+    PO_C6     IN  CHAR_ARRAY_OBJECT
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_CHAR
+(
+    PI_C1     IN  CHAR,
+    PI_C2     IN  VARCHAR2,
+    PI_C3     IN  VARCHAR2,
+    PI_C4     IN  NCHAR,
+    PI_C5     IN  NVARCHAR2
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_CURSOR
+(
+    PO_CURSOR          OUT  SYS_REFCURSOR,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+    OPEN PO_CURSOR FOR
+    SELECT
+        0 AS C_NUMERIC,
+        0 AS C_INTEGER,
+        0 AS C_INT,
+        0 AS C_SMALLINTEGER,
+        0 AS C_DECIMAL,
+        0 AS C_DEC,
+        0 AS C_FLOAT,
+        0 AS C_REAL,
+        ' ' AS C_CHAR,
+        TO_CLOB(' ') AS C_CLOB,
+        TO_CLOB(' ') AS C_NCLOB,
+        TO_BLOB(0) AS C_BLOB
+    FROM DUAL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_DELETE
+(
+    PI_ID              IN   NUMBER,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_INSERT
+(
+    PI_ID              IN   NUMBER,
+    PI_NAME            IN   VARCHAR2,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_INSERT_ARRAY
+(
+    PI_ARRAY           IN   TEST_ARRAY,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_INSERT_LOB
+(
+    PI_CLOB            IN   CLOB,
+    PI_NCLOB           IN   NCLOB,
+    PI_BLOB            IN   BLOB,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_INSERT_OBJECT
+(
+    PI_OBJECT          IN   TEST_OBJECT,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_NUMBER
+(
+    PI_C1      IN  NUMBER,
+    PI_C2      IN  NUMBER,
+    PI_C3      IN  NUMBER,
+    PI_C4      IN  NUMBER,
+    PI_C5      IN  NUMBER,
+    PI_C6      IN  NUMBER,
+    PI_C7      IN  FLOAT,
+    PI_C9      IN  FLOAT,
+    PI_C10     IN  BINARY_FLOAT,
+    PI_C11     IN  BINARY_DOUBLE
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_OBJECT
+(
+    PI_C1     IN  NUMERIC_OBJECT,
+    PI_C2     IN  CHAR_OBJECT,
+    PO_C3     IN  NUMERIC_OBJECT,
+    PO_C4     IN  CHAR_OBJECT
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_OUT
+(
+    PO_C1       OUT  CHAR,
+    PO_C2       OUT  VARCHAR2,
+    PO_C3       OUT  VARCHAR2,
+    PO_C4       OUT  NCHAR,
+    PO_C5       OUT  NVARCHAR2,
+    PO_C6       OUT  NUMBER,
+    PO_C7       OUT  NUMBER,
+    PO_C8       OUT  NUMBER,
+    PO_C9       OUT  NUMBER,
+    PO_C10      OUT  NUMBER,
+    PO_C11      OUT  NUMBER,
+    PO_C12      OUT  FLOAT,
+    PO_C13      OUT  FLOAT,
+    PO_C14      OUT  BINARY_FLOAT,
+    PO_C15      OUT  BINARY_DOUBLE,
+    COUNTER     OUT  NUMBER,
+    MESSAGE     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    NULL;
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        NULL;
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_READ
+(
+    PI_ID              IN   NUMBER,
+    PO_NAME            OUT  VARCHAR2,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+
+```sql
+CREATE OR REPLACE PROCEDURE SP_TEST_UPDATE
+(
+    PI_ID              IN   NUMBER,
+    PI_NAME            IN   VARCHAR2,
+    PO_COD_RETORNO     OUT  NUMBER,
+    PO_MSG_RETORNO     OUT  VARCHAR2
+)
+AS
+BEGIN
+
+    PO_COD_RETORNO := 0;
+    PO_MSG_RETORNO := 'OK';
+
+
+EXCEPTION
+   WHEN OTHERS
+   THEN
+        PO_COD_RETORNO := 10;
+        PO_MSG_RETORNO := 'NOK';
+
+END;
+```
+

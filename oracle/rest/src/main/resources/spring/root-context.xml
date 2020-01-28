@@ -18,6 +18,10 @@
 
     <mvc:annotation-driven/>
 
-    <import resource="classpath*:spring/database/oracle-persistence.xml" />
+    <mvc:resources order="1" location="classpath:/META-INF/resources/" mapping="/resources/**" />
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
+
+    <import resource="classpath:spring/oracle-persistence-context.xml" />
 
 </beans>

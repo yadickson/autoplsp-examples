@@ -118,10 +118,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.jslsolucoes</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.1.0</version>
-            <scope>provided</scope>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0.2</version>
         </dependency>
                 
         <dependency>
@@ -193,7 +192,7 @@
             <plugin>
                 <groupId>com.github.yadickson</groupId>
                 <artifactId>autoplsp</artifactId>
-                <version>1.7.21-SNAPSHOT</version>
+                <version>1.7.26-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <goals>
@@ -212,8 +211,10 @@
                     <outParameterCode>PO_COD_RETORNO</outParameterCode>
                     <outParameterMessage>PO_MSG_RETORNO</outParameterMessage>
                     <javaPackageName>plsql</javaPackageName>
-                    <!--outputDirectory>src/main/java</outputDirectory-->
-                    <!--outputDirectoryResource>src/main/resources</outputDirectoryResource-->
+                    <outputDirectory>src/main/java</outputDirectory>
+                    <outputDirectoryResource>src/main/resources</outputDirectoryResource>
+                    <folderNameGenerator>.</folderNameGenerator>
+                    <folderNameResourceGenerator>.</folderNameResourceGenerator>
                     <folderNameGenerator>.</folderNameGenerator>
                     <folderNameResourceGenerator>.</folderNameResourceGenerator>
                     <jsonNonNull>true</jsonNonNull>
@@ -221,18 +222,19 @@
                     <lombok>true</lombok>
                     <header>true</header>
                     <serialization>false</serialization>
-                    <test>false</test>
+                    <test>true</test>
                     <position>true</position>
                     <diamond>true</diamond>
                     <setter>false</setter>
                     <logger>false</logger>
                     <fullConstructor>true</fullConstructor>
+                    <driverVersionName>ojdbc6</driverVersionName>
                 </configuration>
                 <dependencies>
                     <dependency>
-                        <groupId>com.oracle.jdbc</groupId>
-                        <artifactId>ojdbc6</artifactId>
-                        <version>11.1.0.6.0</version>
+                        <groupId>com.oracle</groupId>
+                        <artifactId>ojdbc7</artifactId>
+                        <version>12.1.0.2</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -371,12 +373,20 @@
 
         </plugins>
     </build>
- 
+
+    <repositories>
+        <repository>
+            <id>boundless</id>
+            <name>Boundless Maven Repository</name>
+            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>
+        </repository>
+    </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>boundless</id>
             <name>Boundless Maven Repository</name>
-            <url>http://repo.boundlessgeo.com/main</url>
+            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>
         </pluginRepository>
     </pluginRepositories>
 

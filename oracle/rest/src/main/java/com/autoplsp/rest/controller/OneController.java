@@ -67,8 +67,8 @@ public final class OneController {
     @ResponseBody
     public String reasignaSolicitud(
             @RequestBody OneTO input,
-            @RequestParam(name = "idFuncionario") String idFuncionario,
-            @RequestParam(name = "idSolicitud") Number idSolicitud)
+            @RequestParam(value = "idFuncionario") String idFuncionario,
+            @RequestParam(value = "idSolicitud") Number idSolicitud)
             throws BusinessException {
         return "ok";
     }

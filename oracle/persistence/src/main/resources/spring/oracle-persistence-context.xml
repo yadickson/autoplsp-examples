@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="oracleDS" name="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" >
+        <property name="jndiName" value="jdbc/oracleDS" />
+        <property name="resourceRef" value="true" />
+        <property name="proxyInterface" value="javax.sql.DataSource" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="oracleDS"/>
+    </bean>
+
+    <bean id="oracleJdbcTemplate" name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >
+        <property name="dataSource" ref="oracleDS" />
+    </bean>
+
+    <bean id="FnTestSP" name="FnTestSP" class="plsql.repository.sp.FnTestSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="FnTestCharSP" name="FnTestCharSP" class="plsql.repository.sp.FnTestCharSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="FnTestLobSP" name="FnTestLobSP" class="plsql.repository.sp.FnTestLobSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="FnTestNumberSP" name="FnTestNumberSP" class="plsql.repository.sp.FnTestNumberSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="FnTestOutSP" name="FnTestOutSP" class="plsql.repository.sp.FnTestOutSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestSP" name="SpTestSP" class="plsql.repository.sp.SpTestSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestArraySP" name="SpTestArraySP" class="plsql.repository.sp.SpTestArraySPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestCharSP" name="SpTestCharSP" class="plsql.repository.sp.SpTestCharSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestCursorSP" name="SpTestCursorSP" class="plsql.repository.sp.SpTestCursorSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestDeleteSP" name="SpTestDeleteSP" class="plsql.repository.sp.SpTestDeleteSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestInsertSP" name="SpTestInsertSP" class="plsql.repository.sp.SpTestInsertSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestInsertArraySP" name="SpTestInsertArraySP" class="plsql.repository.sp.SpTestInsertArraySPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestInsertLobSP" name="SpTestInsertLobSP" class="plsql.repository.sp.SpTestInsertLobSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestInsertObjectSP" name="SpTestInsertObjectSP" class="plsql.repository.sp.SpTestInsertObjectSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestNumberSP" name="SpTestNumberSP" class="plsql.repository.sp.SpTestNumberSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestObjectSP" name="SpTestObjectSP" class="plsql.repository.sp.SpTestObjectSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestOutSP" name="SpTestOutSP" class="plsql.repository.sp.SpTestOutSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestReadSP" name="SpTestReadSP" class="plsql.repository.sp.SpTestReadSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <bean id="SpTestUpdateSP" name="SpTestUpdateSP" class="plsql.repository.sp.SpTestUpdateSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
+    <context:component-scan base-package="plsql.**"/>
+
+</beans>
