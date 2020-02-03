@@ -14,29 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package plsql.array;
-
-import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
- * Interface array for build datatype NUMERIC_ARRAY.
- *
- * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.29-SNAPSHOT
+ * Cursor package folder.
  */
-public interface NumericArrayTableBuilder {
-
-    /**
-     * Getter data object type.
-     *
-     * @param connection database connection.
-     * @param array array object to process.
-     * @return array object processed.
-     * @throws SQLException if error
-     */
-    Object process(
-            Connection connection,
-            NumericArrayTable array
-    ) throws SQLException;
-}
+package plsql.cursor;

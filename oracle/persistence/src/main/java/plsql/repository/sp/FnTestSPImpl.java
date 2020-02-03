@@ -26,7 +26,7 @@ import org.springframework.jdbc.object.StoredProcedure;
  * FN_TEST
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.27-SNAPSHOT
+ * @version 1.7.29-SNAPSHOT
  */
 public final class FnTestSPImpl
         extends StoredProcedure

@@ -16,7 +16,7 @@
  */
 package plsql.repository.mapper;
 
-import plsql.domain.SpTestCursorPoCursorRS;
+import plsql.cursor.SpTestCursorPoCursorRS;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +31,7 @@ import org.springframework.jdbc.core.RowMapper;
  * PO_CURSOR
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.27-SNAPSHOT
+ * @version 1.7.29-SNAPSHOT
  */
 public final class SpTestCursorPoCursorRSRowMapper
         implements RowMapper<SpTestCursorPoCursorRS> {

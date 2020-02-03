@@ -38,7 +38,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_INSERT
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.27-SNAPSHOT
+ * @version 1.7.29-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})

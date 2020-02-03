@@ -1,6 +1,6 @@
 package plsql.repository.mapper;
 
-import plsql.domain.SpTestCursorPoCursorRS;
+import plsql.cursor.SpTestCursorPoCursorRS;
 
 import org.junit.Assert;
 import org.junit.Test;

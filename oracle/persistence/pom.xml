@@ -192,7 +192,7 @@
             <plugin>
                 <groupId>com.github.yadickson</groupId>
                 <artifactId>autoplsp</artifactId>
-                <version>1.7.27-SNAPSHOT</version>
+                <version>1.7.29-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <goals>

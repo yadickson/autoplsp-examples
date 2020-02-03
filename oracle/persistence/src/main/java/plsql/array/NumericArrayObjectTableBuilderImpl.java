@@ -31,7 +31,7 @@ import org.springframework.stereotype.Component;
  * Builder class to make array for datatype NUMERIC_ARRAY_OBJECT.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.27-SNAPSHOT
+ * @version 1.7.29-SNAPSHOT
  */
 @Component
 public final class NumericArrayObjectTableBuilderImpl

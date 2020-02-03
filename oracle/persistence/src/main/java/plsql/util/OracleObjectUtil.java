@@ -23,7 +23,7 @@ import java.sql.SQLException;
  * Interface to create object.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.27-SNAPSHOT
+ * @version 1.7.29-SNAPSHOT
  */
 public interface OracleObjectUtil {
 

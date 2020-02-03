@@ -1,6 +1,6 @@
 package plsql.repository;
 
-import plsql.domain.SpTestCursorPoCursorRS;
+import plsql.cursor.SpTestCursorPoCursorRS;
 import plsql.domain.SpTestCursorOUT;
 import plsql.repository.sp.SpTestCursorSP;
 import plsql.util.OracleCheckResult;

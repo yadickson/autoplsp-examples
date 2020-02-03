@@ -24,7 +24,7 @@ import java.util.Map;
  * SP_TEST_UPDATE
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.27-SNAPSHOT
+ * @version 1.7.29-SNAPSHOT
  */
 public interface SpTestUpdateSP {
 

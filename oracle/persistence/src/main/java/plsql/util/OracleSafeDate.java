@@ -22,7 +22,7 @@ import java.util.Date;
  * Utility to process date class.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.27-SNAPSHOT
+ * @version 1.7.29-SNAPSHOT
  */
 public final class OracleSafeDate {
 
