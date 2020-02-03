@@ -79,9 +79,18 @@ public final class SpTestInsertLobDAOImpl
 
         try {
 
-            in.put("PI_CLOB", params.getPiClob());
-            in.put("PI_NCLOB", params.getPiNclob());
-            in.put("PI_BLOB", params.getPiBlob());
+            in.put(
+                    "PI_CLOB",
+                    params.getPiClob()
+            );
+            in.put(
+                    "PI_NCLOB",
+                    params.getPiNclob()
+            );
+            in.put(
+                    "PI_BLOB",
+                    params.getPiBlob()
+            );
 
             out = procedure.execute(in);
 

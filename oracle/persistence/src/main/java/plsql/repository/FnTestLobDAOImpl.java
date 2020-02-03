@@ -86,9 +86,18 @@ public final class FnTestLobDAOImpl
 
         try {
 
-            in.put("PI_C1", params.getPiC1());
-            in.put("PI_C2", params.getPiC2());
-            in.put("PI_C3", params.getPiC3());
+            in.put(
+                    "PI_C1",
+                    params.getPiC1()
+            );
+            in.put(
+                    "PI_C2",
+                    params.getPiC2()
+            );
+            in.put(
+                    "PI_C3",
+                    params.getPiC3()
+            );
 
             out = function.execute(in);
 

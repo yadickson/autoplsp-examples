@@ -79,8 +79,14 @@ public final class SpTestUpdateDAOImpl
 
         try {
 
-            in.put("PI_ID", params.getPiId());
-            in.put("PI_NAME", params.getPiName());
+            in.put(
+                    "PI_ID",
+                    params.getPiId()
+            );
+            in.put(
+                    "PI_NAME",
+                    params.getPiName()
+            );
 
             out = procedure.execute(in);
 

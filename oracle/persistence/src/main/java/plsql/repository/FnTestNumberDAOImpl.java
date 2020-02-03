@@ -70,16 +70,46 @@ public final class FnTestNumberDAOImpl
 
         try {
 
-            in.put("PI_C1", params.getPiC1());
-            in.put("PI_C2", params.getPiC2());
-            in.put("PI_C3", params.getPiC3());
-            in.put("PI_C4", params.getPiC4());
-            in.put("PI_C5", params.getPiC5());
-            in.put("PI_C6", params.getPiC6());
-            in.put("PI_C7", params.getPiC7());
-            in.put("PI_C9", params.getPiC9());
-            in.put("PI_C10", params.getPiC10());
-            in.put("PI_C11", params.getPiC11());
+            in.put(
+                    "PI_C1",
+                    params.getPiC1()
+            );
+            in.put(
+                    "PI_C2",
+                    params.getPiC2()
+            );
+            in.put(
+                    "PI_C3",
+                    params.getPiC3()
+            );
+            in.put(
+                    "PI_C4",
+                    params.getPiC4()
+            );
+            in.put(
+                    "PI_C5",
+                    params.getPiC5()
+            );
+            in.put(
+                    "PI_C6",
+                    params.getPiC6()
+            );
+            in.put(
+                    "PI_C7",
+                    params.getPiC7()
+            );
+            in.put(
+                    "PI_C9",
+                    params.getPiC9()
+            );
+            in.put(
+                    "PI_C10",
+                    params.getPiC10()
+            );
+            in.put(
+                    "PI_C11",
+                    params.getPiC11()
+            );
 
             out = function.execute(in);
 

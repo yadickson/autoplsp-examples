@@ -120,10 +120,22 @@ public final class SpTestObjectDAOImpl
                     params.getPoC4()
             );
 
-            in.put("PI_C1", piC1);
-            in.put("PI_C2", piC2);
-            in.put("PO_C3", poC3);
-            in.put("PO_C4", poC4);
+            in.put(
+                    "PI_C1",
+                    piC1
+            );
+            in.put(
+                    "PI_C2",
+                    piC2
+            );
+            in.put(
+                    "PO_C3",
+                    poC3
+            );
+            in.put(
+                    "PO_C4",
+                    poC4
+            );
 
             procedure.execute(in);
 

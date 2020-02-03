@@ -34,7 +34,17 @@ public final class OracleCheckResultImpl
     /**
      * Success constant value.
      */
-    private static final String SUCCESS_CODE = "0";
+    private static final String ORACLE_SUCCESS_CODE = "0";
+
+    /**
+     * Code to check.
+     */
+    private static final String ORACLE_CODE = "PO_COD_RETORNO";
+
+    /**
+     * Message to check.
+     */
+    private static final String ORACLE_MESSAGE = "PO_MSG_RETORNO";
 
     /**
      * {@inheritDoc}
@@ -46,15 +56,15 @@ public final class OracleCheckResultImpl
             return;
         }
 
-        Number code = (Number) map.get("PO_COD_RETORNO");
+        Number oracleCode = (Number) map.get(ORACLE_CODE);
 
-        if (code == null) {
+        if (oracleCode == null) {
             return;
         }
 
-        if (!SUCCESS_CODE.equals(code.toString())) {
-            String description = (String) map.get("PO_MSG_RETORNO");
-            throw new SQLException(description, code.toString());
+        if (!ORACLE_SUCCESS_CODE.equals(oracleCode.toString())) {
+            String description = (String) map.get(ORACLE_MESSAGE);
+            throw new SQLException(description, oracleCode.toString());
         }
     }
 

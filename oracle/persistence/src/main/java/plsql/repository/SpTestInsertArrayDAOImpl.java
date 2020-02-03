@@ -105,7 +105,10 @@ public final class SpTestInsertArrayDAOImpl
                     params.getPiArray()
             );
 
-            in.put("PI_ARRAY", piArray);
+            in.put(
+                    "PI_ARRAY",
+                    piArray
+            );
 
             out = procedure.execute(in);
 

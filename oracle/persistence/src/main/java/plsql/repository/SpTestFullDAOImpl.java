@@ -121,9 +121,18 @@ public final class SpTestFullDAOImpl
                     params.getPoC3()
             );
 
-            in.put("PI_C1", piC1);
-            in.put("PI_C2", piC2);
-            in.put("PO_C3", poC3);
+            in.put(
+                    "PI_C1",
+                    piC1
+            );
+            in.put(
+                    "PI_C2",
+                    piC2
+            );
+            in.put(
+                    "PO_C3",
+                    poC3
+            );
 
             procedure.execute(in);
 

@@ -79,7 +79,10 @@ public final class SpTestDeleteDAOImpl
 
         try {
 
-            in.put("PI_ID", params.getPiId());
+            in.put(
+                    "PI_ID",
+                    params.getPiId()
+            );
 
             out = procedure.execute(in);
 
