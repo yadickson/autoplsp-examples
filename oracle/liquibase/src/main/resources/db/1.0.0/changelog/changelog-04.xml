@@ -104,6 +104,48 @@
 		
     </changeSet>
 
+    <changeSet id="9" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.9"/>
+	<sqlFile relativeToChangelogFile="true" path="../scripts/types/TEST_OBJECT_FULL.sql" splitStatements="false"/>
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE TEST_OBJECT_FULL FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="10" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.10"/>
+
+        <sql>
+            <![CDATA[CREATE OR REPLACE TYPE CLOB_ARRAY AS TABLE OF CLOB;]]>
+        </sql>	
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE CLOB_ARRAY FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+
+    <changeSet id="11" author="yadickson.soto" dbms="oracle" runOnChange="false">
+	<ext:tagDatabase tag="1.0.0-04.11"/>
+
+        <sql>
+            <![CDATA[CREATE OR REPLACE TYPE BLOB_ARRAY AS TABLE OF BLOB;]]>
+        </sql>	
+
+        <rollback>
+            <sql>
+                <![CDATA[DROP TYPE BLOB_ARRAY FORCE;]]>
+            </sql>	
+        </rollback>
+		
+    </changeSet>
+
 </databaseChangeLog>
 	
 	

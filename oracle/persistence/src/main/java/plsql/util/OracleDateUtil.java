@@ -16,42 +16,22 @@
  */
 package plsql.util;
 
-import java.io.InputStream;
-import java.sql.Clob;
-
-import org.apache.commons.io.IOUtils;
-
-import org.springframework.stereotype.Component;
+import java.util.Date;
 
 /**
- * Class to process clob element.
+ * Interface utility to process date database.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
-@Component
-public final class ClobUtilImpl implements ClobUtil {
+public interface OracleDateUtil {
 
     /**
-     * {@inheritDoc}
+     * Process date.
+     *
+     * @param param date to process.
+     * @return object date.
      */
-    @Override
-    public String process(final Object object) {
-
-        if (object == null) {
-            return null;
-        }
-
-        Clob clob = (Clob) object;
-        String result;
-
-        try (InputStream stream = clob.getAsciiStream()) {
-            result = IOUtils.toString(stream, "UTF-8");
-        } catch (Exception ex) {
-            result = null;
-        }
-
-        return result;
-    }
+    Object process(final Date param);
 
 }

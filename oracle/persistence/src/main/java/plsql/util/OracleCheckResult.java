@@ -16,29 +16,23 @@
  */
 package plsql.util;
 
-import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Map;
 
 /**
- * Interface to create object.
+ * Interface to check result from store procedure or function.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
-public interface ObjectUtil {
+public interface OracleCheckResult {
 
     /**
-     * Getter data object type.
+     * Evaluate output parameters from database.
      *
-     * @param connection database connection
-     * @param name object database name.
-     * @param objects objects to set in object.
-     * @return object
-     * @throws SQLException if error
+     * @param map map to evaluate.
+     * @throws SQLException if error.
      */
-    Object process(
-            Connection connection,
-            String name,
-            Object[] objects
-    ) throws SQLException;
+    void check(Map<String, Object> map) throws SQLException;
+
 }

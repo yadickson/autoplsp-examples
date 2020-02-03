@@ -14,10 +14,10 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ObjectUtilTest {
+public class OracleObjectUtilTest {
 
     @InjectMocks
-    ObjectUtilImpl objectUtil;
+    OracleObjectUtilImpl objectUtil;
 
     @Mock
     private OracleConnection oracleConnection;

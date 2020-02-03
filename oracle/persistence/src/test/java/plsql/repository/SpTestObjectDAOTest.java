@@ -8,7 +8,7 @@ import plsql.object.CharObjectObject;
 import plsql.object.CharObjectObjectBuilder;
 import plsql.object.NumericObjectObject;
 import plsql.object.NumericObjectObjectBuilder;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleConnectionUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -32,7 +32,7 @@ public class SpTestObjectDAOTest {
     private Connection connection;
 
     @Mock
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     @Mock
     private CharObjectObjectBuilder charObjectObjectBuilder;

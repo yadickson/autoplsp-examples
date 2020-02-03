@@ -19,7 +19,7 @@ package plsql.repository;
 import plsql.domain.SpTestUpdateIN;
 import plsql.domain.SpTestUpdateOUT;
 import plsql.repository.sp.SpTestUpdateSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import java.sql.SQLException;
 
@@ -38,7 +38,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_UPDATE
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -49,7 +49,7 @@ public final class SpTestUpdateDAOImpl
      * Check result utility.
      */
     @Autowired
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     /**
      * Stored procedure.

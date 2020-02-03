@@ -14,25 +14,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package plsql.util;
+package plsql.array;
 
-import java.sql.SQLException;
-import java.util.Map;
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
- * Interface to check result from store procedure or function.
+ * Bean array for datatype BLOB_ARRAY.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
-public interface CheckResult {
-
-    /**
-     * Evaluate output parameters from database.
-     *
-     * @param map map to evaluate.
-     * @throws SQLException if error.
-     */
-    void check(Map<String, Object> map) throws SQLException;
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings({"serial"})
+public final class BlobArrayTable
+        extends ArrayList<byte[]> {
 }

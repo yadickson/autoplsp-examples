@@ -18,7 +18,7 @@ package plsql.repository;
 
 import plsql.domain.SpTestObjectIN;
 import plsql.repository.sp.SpTestObjectSP;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleConnectionUtil;
 import plsql.object.CharObjectObjectBuilder;
 import plsql.object.NumericObjectObjectBuilder;
 
@@ -40,7 +40,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_OBJECT
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -63,7 +63,7 @@ public final class SpTestObjectDAOImpl
      * The connection util.
      */
     @Autowired
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     /**
      * Stored procedure.

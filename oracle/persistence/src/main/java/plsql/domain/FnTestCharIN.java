@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  * FN_TEST_CHAR
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @NoArgsConstructor
 @Getter

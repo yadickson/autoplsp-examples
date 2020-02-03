@@ -67,6 +67,10 @@
         <constructor-arg index="0" ref="oracleJdbcTemplate" />
     </bean>
 
+    <bean id="SpTestFullSP" name="SpTestFullSP" class="plsql.repository.sp.SpTestFullSPImpl" >
+        <constructor-arg index="0" ref="oracleJdbcTemplate" />
+    </bean>
+
     <bean id="SpTestInsertSP" name="SpTestInsertSP" class="plsql.repository.sp.SpTestInsertSPImpl" >
         <constructor-arg index="0" ref="oracleJdbcTemplate" />
     </bean>

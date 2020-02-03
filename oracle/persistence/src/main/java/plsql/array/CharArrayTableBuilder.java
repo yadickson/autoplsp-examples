@@ -23,7 +23,7 @@ import java.sql.SQLException;
  * Interface array for build datatype CHAR_ARRAY.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 public interface CharArrayTableBuilder {
 

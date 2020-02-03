@@ -20,8 +20,8 @@ import plsql.array.TestArrayTableBuilder;
 import plsql.domain.SpTestInsertArrayIN;
 import plsql.domain.SpTestInsertArrayOUT;
 import plsql.repository.sp.SpTestInsertArraySP;
-import plsql.util.CheckResult;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleCheckResult;
+import plsql.util.OracleConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -41,7 +41,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_INSERT_ARRAY
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -58,13 +58,13 @@ public final class SpTestInsertArrayDAOImpl
      * Check result utility.
      */
     @Autowired
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     /**
      * The connection util.
      */
     @Autowired
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     /**
      * Stored procedure.

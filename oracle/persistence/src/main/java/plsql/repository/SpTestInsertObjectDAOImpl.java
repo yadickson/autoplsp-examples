@@ -19,8 +19,8 @@ package plsql.repository;
 import plsql.domain.SpTestInsertObjectIN;
 import plsql.domain.SpTestInsertObjectOUT;
 import plsql.repository.sp.SpTestInsertObjectSP;
-import plsql.util.CheckResult;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleCheckResult;
+import plsql.util.OracleConnectionUtil;
 import plsql.object.TestObjectObjectBuilder;
 
 import java.sql.Connection;
@@ -41,7 +41,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_INSERT_OBJECT
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -58,13 +58,13 @@ public final class SpTestInsertObjectDAOImpl
      * Check result utility.
      */
     @Autowired
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     /**
      * The connection util.
      */
     @Autowired
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     /**
      * Stored procedure.

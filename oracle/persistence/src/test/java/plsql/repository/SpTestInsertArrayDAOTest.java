@@ -7,8 +7,8 @@ import plsql.array.TestArrayTableBuilder;
 import plsql.domain.SpTestInsertArrayIN;
 import plsql.domain.SpTestInsertArrayOUT;
 import plsql.repository.sp.SpTestInsertArraySP;
-import plsql.util.CheckResult;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleCheckResult;
+import plsql.util.OracleConnectionUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,13 +29,13 @@ public class SpTestInsertArrayDAOTest {
     SpTestInsertArrayDAOImpl repository;
 
     @Mock
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     @Mock
     private Connection connection;
 
     @Mock
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     @Mock
     private TestArrayTableBuilder testArrayTableBuilder;

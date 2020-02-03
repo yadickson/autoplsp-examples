@@ -22,7 +22,7 @@ import java.sql.SQLException;
 import plsql.object.CharObjectObject;
 import plsql.object.CharObjectObjectBuilder;
 
-import plsql.util.ArrayUtil;
+import plsql.util.OracleArrayUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Component;
  * Builder class to make array for datatype CHAR_ARRAY_OBJECT.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Component
 public final class CharArrayObjectTableBuilderImpl
@@ -41,7 +41,7 @@ public final class CharArrayObjectTableBuilderImpl
      * Array utility.
      */
     @Autowired
-    private ArrayUtil arrayUtil;
+    private OracleArrayUtil arrayUtil;
 
     /**
      * Object utility to build CHAR_OBJECT.

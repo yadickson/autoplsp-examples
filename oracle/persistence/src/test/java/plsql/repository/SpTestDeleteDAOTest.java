@@ -3,7 +3,7 @@ package plsql.repository;
 import plsql.domain.SpTestDeleteIN;
 import plsql.domain.SpTestDeleteOUT;
 import plsql.repository.sp.SpTestDeleteSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class SpTestDeleteDAOTest {
     SpTestDeleteDAOImpl repository;
 
     @Mock
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     @Mock(name = "SpTestDeleteSP")
     private SpTestDeleteSP procedure;

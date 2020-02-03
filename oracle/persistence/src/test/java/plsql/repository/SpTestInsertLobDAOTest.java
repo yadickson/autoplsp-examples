@@ -3,7 +3,7 @@ package plsql.repository;
 import plsql.domain.SpTestInsertLobIN;
 import plsql.domain.SpTestInsertLobOUT;
 import plsql.repository.sp.SpTestInsertLobSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class SpTestInsertLobDAOTest {
     SpTestInsertLobDAOImpl repository;
 
     @Mock
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     @Mock(name = "SpTestInsertLobSP")
     private SpTestInsertLobSP procedure;

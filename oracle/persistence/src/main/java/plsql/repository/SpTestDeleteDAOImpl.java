@@ -19,7 +19,7 @@ package plsql.repository;
 import plsql.domain.SpTestDeleteIN;
 import plsql.domain.SpTestDeleteOUT;
 import plsql.repository.sp.SpTestDeleteSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import java.sql.SQLException;
 
@@ -38,7 +38,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_DELETE
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -49,7 +49,7 @@ public final class SpTestDeleteDAOImpl
      * Check result utility.
      */
     @Autowired
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     /**
      * Stored procedure.

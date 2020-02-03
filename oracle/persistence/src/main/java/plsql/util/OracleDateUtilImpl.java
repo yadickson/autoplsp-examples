@@ -16,45 +16,41 @@
  */
 package plsql.util;
 
-import java.sql.SQLException;
-import java.util.Map;
+import java.util.Date; 
+
+import oracle.sql.DATE;
 
 import org.springframework.stereotype.Component;
 
 /**
- * Check result from store procedure or function.
+ * Utility to process date class.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Component
-public final class CheckResultImpl implements CheckResult {
-
-    /**
-     * Success constant value.
-     */
-    private static final String SUCCESS_CODE = "0";
+public final class OracleDateUtilImpl
+        implements OracleDateUtil {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void check(final Map<String, Object> map) throws SQLException {
+    public Object process(final Date param) {
 
-        if (map == null) {
-            return;
+        if (param == null) {
+            return null;
         }
 
-        Number code = (Number) map.get("PO_COD_RETORNO");
+        DATE date;
 
-        if (code == null) {
-            return;
+        try {
+            date = new DATE(new java.sql.Date(param.getTime()));
+        } catch (Exception ex) {
+            date = null;
         }
 
-        if (!SUCCESS_CODE.equals(code.toString())) {
-            String description = (String) map.get("PO_MSG_RETORNO");
-            throw new SQLException(description, code.toString());
-        }
+        return date;
     }
 
 }

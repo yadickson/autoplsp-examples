@@ -3,7 +3,7 @@ package plsql.repository;
 import plsql.domain.SpTestUpdateIN;
 import plsql.domain.SpTestUpdateOUT;
 import plsql.repository.sp.SpTestUpdateSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class SpTestUpdateDAOTest {
     SpTestUpdateDAOImpl repository;
 
     @Mock
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     @Mock(name = "SpTestUpdateSP")
     private SpTestUpdateSP procedure;

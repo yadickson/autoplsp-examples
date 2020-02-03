@@ -12,7 +12,7 @@ import plsql.array.NumericArrayTable;
 import plsql.array.NumericArrayTableBuilder;
 import plsql.domain.SpTestArrayIN;
 import plsql.repository.sp.SpTestArraySP;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleConnectionUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -36,7 +36,7 @@ public class SpTestArrayDAOTest {
     private Connection connection;
 
     @Mock
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     @Mock
     private CharArrayObjectTableBuilder charArrayObjectTableBuilder;

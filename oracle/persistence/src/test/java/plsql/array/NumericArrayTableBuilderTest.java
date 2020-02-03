@@ -3,7 +3,7 @@ package plsql.array;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import plsql.util.ArrayUtil;
+import plsql.util.OracleArrayUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class NumericArrayTableBuilderTest {
     NumericArrayTableBuilderImpl builder;
 
     @Mock
-    private ArrayUtil arrayUtil;
+    private OracleArrayUtil arrayUtil;
 
     @Mock
     private Connection connection;

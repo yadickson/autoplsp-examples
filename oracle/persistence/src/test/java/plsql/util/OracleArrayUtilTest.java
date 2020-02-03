@@ -15,10 +15,10 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ArrayUtilTest {
+public class OracleArrayUtilTest {
 
     @InjectMocks
-    ArrayUtilImpl arrayUtil;
+    OracleArrayUtilImpl arrayUtil;
 
     @Mock
     private OracleConnection oracleConnection;

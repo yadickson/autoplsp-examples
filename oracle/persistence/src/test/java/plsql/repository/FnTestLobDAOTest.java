@@ -3,8 +3,8 @@ package plsql.repository;
 import plsql.domain.FnTestLobIN;
 import plsql.domain.FnTestLobOUT;
 import plsql.repository.sp.FnTestLobSP;
-import plsql.util.BlobUtil;
-import plsql.util.ClobUtil;
+import plsql.util.OracleBlobUtil;
+import plsql.util.OracleClobUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,10 +25,10 @@ public class FnTestLobDAOTest {
     FnTestLobDAOImpl repository;
 
     @Mock
-    private BlobUtil blobUtil;
+    private OracleBlobUtil blobUtil;
 
     @Mock
-    private ClobUtil clobUtil;
+    private OracleClobUtil clobUtil;
 
     @Mock(name = "FnTestLobSP")
     private FnTestLobSP function;

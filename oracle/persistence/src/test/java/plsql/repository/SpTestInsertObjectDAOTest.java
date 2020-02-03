@@ -7,8 +7,8 @@ import plsql.domain.SpTestInsertObjectOUT;
 import plsql.repository.sp.SpTestInsertObjectSP;
 import plsql.object.TestObjectObject;
 import plsql.object.TestObjectObjectBuilder;
-import plsql.util.CheckResult;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleCheckResult;
+import plsql.util.OracleConnectionUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,13 +29,13 @@ public class SpTestInsertObjectDAOTest {
     SpTestInsertObjectDAOImpl repository;
 
     @Mock
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     @Mock
     private Connection connection;
 
     @Mock
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     @Mock
     private TestObjectObjectBuilder testObjectObjectBuilder;

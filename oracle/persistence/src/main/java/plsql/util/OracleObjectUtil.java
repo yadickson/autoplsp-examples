@@ -17,28 +17,28 @@
 package plsql.util;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
- * Interface to process connection transaction.
+ * Interface to create object.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
-public interface ConnectionUtil {
+public interface OracleObjectUtil {
 
     /**
-     * Getter current connection.
+     * Getter data object type.
      *
-     * @return Connection class.
+     * @param connection database connection
+     * @param name object database name.
+     * @param objects objects to set in object.
+     * @return object
+     * @throws SQLException if error
      */
-    Connection process();
-
-    /**
-     * Release connection.
-     *
-     * @param connection connection.
-     * @return true if connection were closed.
-     */
-    boolean release(Connection connection);
-
+    Object process(
+            Connection connection,
+            String name,
+            Object[] objects
+    ) throws SQLException;
 }

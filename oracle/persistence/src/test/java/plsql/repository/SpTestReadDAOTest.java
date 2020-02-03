@@ -3,7 +3,7 @@ package plsql.repository;
 import plsql.domain.SpTestReadIN;
 import plsql.domain.SpTestReadOUT;
 import plsql.repository.sp.SpTestReadSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class SpTestReadDAOTest {
     SpTestReadDAOImpl repository;
 
     @Mock
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     @Mock(name = "SpTestReadSP")
     private SpTestReadSP procedure;

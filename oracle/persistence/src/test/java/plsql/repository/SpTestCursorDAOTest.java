@@ -3,7 +3,7 @@ package plsql.repository;
 import plsql.domain.SpTestCursorPoCursorRS;
 import plsql.domain.SpTestCursorOUT;
 import plsql.repository.sp.SpTestCursorSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class SpTestCursorDAOTest {
     SpTestCursorDAOImpl repository;
 
     @Mock
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     @Mock(name = "SpTestCursorSP")
     private SpTestCursorSP procedure;

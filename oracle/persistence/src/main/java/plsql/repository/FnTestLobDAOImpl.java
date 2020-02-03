@@ -19,8 +19,8 @@ package plsql.repository;
 import plsql.domain.FnTestLobIN;
 import plsql.domain.FnTestLobOUT;
 import plsql.repository.sp.FnTestLobSP;
-import plsql.util.BlobUtil;
-import plsql.util.ClobUtil;
+import plsql.util.OracleBlobUtil;
+import plsql.util.OracleClobUtil;
 
 import java.sql.SQLException;
 
@@ -39,7 +39,7 @@ import org.springframework.stereotype.Repository;
  * FN_TEST_LOB
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -50,13 +50,13 @@ public final class FnTestLobDAOImpl
      * Blob utility.
      */
     @Autowired
-    private BlobUtil blobUtil;
+    private OracleBlobUtil blobUtil;
 
     /**
      * Clob utility.
      */
     @Autowired
-    private ClobUtil clobUtil;
+    private OracleClobUtil clobUtil;
 
     /**
      * Function.

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import plsql.object.NumericObjectObject;
 import plsql.object.NumericObjectObjectBuilder;
 
-import plsql.util.ArrayUtil;
+import plsql.util.OracleArrayUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class NumericArrayObjectTableBuilderTest {
     NumericArrayObjectTableBuilderImpl builder;
 
     @Mock
-    private ArrayUtil arrayUtil;
+    private OracleArrayUtil arrayUtil;
 
     @Mock
     private Connection connection;

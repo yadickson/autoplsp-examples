@@ -19,7 +19,7 @@ package plsql.repository;
 import plsql.domain.SpTestCursorPoCursorRS;
 import plsql.domain.SpTestCursorOUT;
 import plsql.repository.sp.SpTestCursorSP;
-import plsql.util.CheckResult;
+import plsql.util.OracleCheckResult;
 
 import java.sql.SQLException;
 
@@ -39,7 +39,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_CURSOR
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -50,7 +50,7 @@ public final class SpTestCursorDAOImpl
      * Check result utility.
      */
     @Autowired
-    private CheckResult checkResult;
+    private OracleCheckResult checkResult;
 
     /**
      * Stored procedure.

@@ -19,7 +19,7 @@ package plsql.object;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import plsql.util.ObjectUtil;
+import plsql.util.OracleObjectUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
  * Bean object for datatype CHAR_OBJECT.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Component
 public final class CharObjectObjectBuilderImpl
@@ -38,7 +38,7 @@ public final class CharObjectObjectBuilderImpl
      * Object utility.
      */
     @Autowired
-    private ObjectUtil objectUtil;
+    private OracleObjectUtil objectUtil;
 
     /**
      * {@inheritDoc}
@@ -49,12 +49,24 @@ public final class CharObjectObjectBuilderImpl
             final CharObjectObject object
     ) throws SQLException {
 
+        Object c1;
+        Object c2;
+        Object c3;
+        Object c4;
+        Object c5;
+
+        c1 = object.getC1();
+        c2 = object.getC2();
+        c3 = object.getC3();
+        c4 = object.getC4();
+        c5 = object.getC5();
+
         Object[] objs = new Object[]{
-            object.getC1(),
-            object.getC2(),
-            object.getC3(),
-            object.getC4(),
-            object.getC5()
+            c1,
+            c2,
+            c3,
+            c4,
+            c5
         };
 
         return objectUtil.process(

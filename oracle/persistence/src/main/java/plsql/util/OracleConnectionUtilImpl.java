@@ -29,10 +29,11 @@ import org.springframework.stereotype.Component;
  * Class to process connection transaction.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Component
-public final class ConnectionUtilImpl implements ConnectionUtil {
+public final class OracleConnectionUtilImpl implements
+        OracleConnectionUtil {
 
     /**
      * JDBC template to use.

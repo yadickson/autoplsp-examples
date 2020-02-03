@@ -3,7 +3,7 @@ package plsql.object;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import plsql.util.ObjectUtil;
+import plsql.util.OracleObjectUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class CharObjectObjectBuilderTest {
     CharObjectObjectBuilderImpl builder;
 
     @Mock
-    private ObjectUtil objectUtil;
+    private OracleObjectUtil objectUtil;
 
     @Mock
     private Connection connection;
@@ -66,5 +66,6 @@ public class CharObjectObjectBuilderTest {
         Assert.assertSame(objC3, objParamsResult[2]);
         Assert.assertSame(objC4, objParamsResult[3]);
         Assert.assertSame(objC5, objParamsResult[4]);
+
     }
 }

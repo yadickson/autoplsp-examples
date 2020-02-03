@@ -16,10 +16,16 @@
  */
 package plsql.util;
 
-import java.sql.Blob;
 import java.io.InputStream;
+import java.io.OutputStream;
+
+import java.sql.Blob;
+import java.sql.Connection;
 
 import org.apache.commons.io.IOUtils;
+
+import oracle.jdbc.OracleConnection;
+import oracle.sql.BLOB;
 
 import org.springframework.stereotype.Component;
 
@@ -27,10 +33,12 @@ import org.springframework.stereotype.Component;
  * Class to process blob element.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Component
-public final class BlobUtilImpl implements BlobUtil {
+@SuppressWarnings({"deprecation"})
+public final class OracleBlobUtilImpl
+        implements OracleBlobUtil {
 
     /**
      * {@inheritDoc}
@@ -52,6 +60,39 @@ public final class BlobUtilImpl implements BlobUtil {
         }
 
         return result;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Object process(
+        final Connection connection,
+        final byte[] param
+    ) {
+        BLOB blob = null;
+
+        try {
+
+            OracleConnection oConn = connection.unwrap(OracleConnection.class);
+
+            blob = BLOB.createTemporary(
+                    oConn,
+                    false,
+                    BLOB.DURATION_SESSION
+            );
+
+            try (OutputStream stream = blob.getBinaryOutputStream()) {
+                stream.write(param);
+            } catch (Exception ex) {
+                blob = null;
+            }
+
+        } catch (Exception ex) {
+            blob = null;
+        }
+
+        return blob;
     }
 
 }

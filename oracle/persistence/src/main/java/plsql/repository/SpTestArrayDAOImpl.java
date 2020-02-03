@@ -22,7 +22,7 @@ import plsql.array.NumericArrayObjectTableBuilder;
 import plsql.array.NumericArrayTableBuilder;
 import plsql.domain.SpTestArrayIN;
 import plsql.repository.sp.SpTestArraySP;
-import plsql.util.ConnectionUtil;
+import plsql.util.OracleConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -42,7 +42,7 @@ import org.springframework.stereotype.Repository;
  * SP_TEST_ARRAY
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @Repository
 @SuppressWarnings({"unchecked"})
@@ -77,7 +77,7 @@ public final class SpTestArrayDAOImpl
      * The connection util.
      */
     @Autowired
-    private ConnectionUtil connectionUtil;
+    private OracleConnectionUtil connectionUtil;
 
     /**
      * Stored procedure.

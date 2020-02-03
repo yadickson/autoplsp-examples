@@ -19,26 +19,38 @@ package plsql.util;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import oracle.jdbc.OracleConnection;
+
+import org.springframework.stereotype.Component;
+
 /**
- * Interface to create array.
+ * Class to process array element.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
-public interface ArrayUtil {
+@Component
+@SuppressWarnings({"deprecation"})
+public final class OracleArrayUtilImpl
+        implements OracleArrayUtil {
 
     /**
-     * Getter database array type.
-     *
-     * @param connection database connection.
-     * @param name array database name.
-     * @param objects objects to set in array.
-     * @return array.
-     * @throws SQLException if error
+     * {@inheritDoc}
      */
-    Object process(
-            Connection connection,
-            String name,
-            Object[] objects
-    ) throws SQLException;
+    @Override
+    public Object process(
+            final Connection connection,
+            final String name,
+            final Object[] objects
+    ) throws SQLException {
+
+        try {
+
+            OracleConnection oConn = connection.unwrap(OracleConnection.class);
+            return oConn.createARRAY(name, objects);
+
+        } catch (Exception ex) {
+            throw new SQLException(ex.getMessage(), "0", ex);
+        }
+    }
 }

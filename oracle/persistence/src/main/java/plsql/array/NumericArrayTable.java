@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  * Bean array for datatype NUMERIC_ARRAY.
  *
  * @author Maven Auto PLSQL/SP Generator Plugin
- * @version 1.7.26-SNAPSHOT
+ * @version 1.7.27-SNAPSHOT
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings({"serial"})
