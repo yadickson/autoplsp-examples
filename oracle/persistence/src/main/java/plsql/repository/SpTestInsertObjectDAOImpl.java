@@ -105,8 +105,7 @@ public final class SpTestInsertObjectDAOImpl
                     params.getPiObject()
             );
 
-            in.put(
-                    "PI_OBJECT",
+            in.put("PI_OBJECT",
                     piObject
             );
 

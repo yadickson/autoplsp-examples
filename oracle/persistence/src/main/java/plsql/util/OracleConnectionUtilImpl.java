@@ -47,19 +47,19 @@ public final class OracleConnectionUtilImpl implements
     @Override
     public Connection process() {
 
-        Connection connection;
+        Connection oracleConn;
 
         try {
 
-            connection = DataSourceUtils.getConnection(
-                 jdbcTemplate.getDataSource()
+            oracleConn = DataSourceUtils.getConnection(
+                    jdbcTemplate.getDataSource()
             );
 
         } catch (Exception ex) {
-            connection = null;
+            oracleConn = null;
         }
 
-        return connection;
+        return oracleConn;
     }
 
     /**
@@ -68,22 +68,22 @@ public final class OracleConnectionUtilImpl implements
     @Override
     public boolean release(final Connection connection) {
 
-        boolean result;
+        boolean oracleResult;
 
         try {
 
             DataSourceUtils.releaseConnection(
-                connection,
-                jdbcTemplate.getDataSource()
+                    connection,
+                    jdbcTemplate.getDataSource()
             );
 
-            result = true;
+            oracleResult = true;
 
         } catch (Exception ex) {
-            result = false;
+            oracleResult = false;
         }
 
-        return result;
+        return oracleResult;
     }
 
 }

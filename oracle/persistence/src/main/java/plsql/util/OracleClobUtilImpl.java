@@ -75,16 +75,17 @@ public final class OracleClobUtilImpl
 
         try {
 
-            OracleConnection oConn = connection.unwrap(OracleConnection.class);
+            OracleConnection oracleConn;
+            oracleConn = connection.unwrap(OracleConnection.class);
 
             clob = CLOB.createTemporary(
-                    oConn,
+                    oracleConn,
                     false,
                     CLOB.DURATION_SESSION
             );
 
-            try (Writer writer = clob.getCharacterOutputStream()) {
-                writer.write(param.toCharArray());
+            try (Writer oracleWriter = clob.getCharacterOutputStream()) {
+                oracleWriter.write(param.toCharArray());
             } catch (Exception ex) {
                 clob = null;
             }

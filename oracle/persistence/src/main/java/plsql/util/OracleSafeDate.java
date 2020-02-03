@@ -16,6 +16,8 @@
  */
 package plsql.util;
 
+import java.util.Date;
+
 /**
  * Utility to process date class.
  *
@@ -34,16 +36,16 @@ public final class OracleSafeDate {
     /**
      * Process date.
      *
-     * @param input date to process.
+     * @param oracleInput input date to process.
      * @return date.
      */
-    public static java.util.Date process(final java.util.Date input) {
+    public static Date process(final Date oracleInput) {
 
-        if (input == null) {
+        if (oracleInput == null) {
             return null;
         }
 
-        return (java.util.Date) input.clone();
+        return (Date) oracleInput.clone();
     }
 
 }

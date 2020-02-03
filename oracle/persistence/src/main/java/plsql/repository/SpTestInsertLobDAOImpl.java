@@ -79,16 +79,13 @@ public final class SpTestInsertLobDAOImpl
 
         try {
 
-            in.put(
-                    "PI_CLOB",
+            in.put("PI_CLOB",
                     params.getPiClob()
             );
-            in.put(
-                    "PI_NCLOB",
+            in.put("PI_NCLOB",
                     params.getPiNclob()
             );
-            in.put(
-                    "PI_BLOB",
+            in.put("PI_BLOB",
                     params.getPiBlob()
             );
 

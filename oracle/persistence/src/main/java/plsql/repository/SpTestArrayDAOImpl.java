@@ -146,28 +146,22 @@ public final class SpTestArrayDAOImpl
                     params.getPoC6()
             );
 
-            in.put(
-                    "PI_C1",
+            in.put("PI_C1",
                     piC1
             );
-            in.put(
-                    "PI_C2",
+            in.put("PI_C2",
                     piC2
             );
-            in.put(
-                    "PO_C3",
+            in.put("PO_C3",
                     poC3
             );
-            in.put(
-                    "PO_C4",
+            in.put("PO_C4",
                     poC4
             );
-            in.put(
-                    "PO_C5",
+            in.put("PO_C5",
                     poC5
             );
-            in.put(
-                    "PO_C6",
+            in.put("PO_C6",
                     poC6
             );
 

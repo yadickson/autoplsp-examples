@@ -74,16 +74,17 @@ public final class OracleBlobUtilImpl
 
         try {
 
-            OracleConnection oConn = connection.unwrap(OracleConnection.class);
+            OracleConnection oracleConn;
+            oracleConn = connection.unwrap(OracleConnection.class);
 
             blob = BLOB.createTemporary(
-                    oConn,
+                    oracleConn,
                     false,
                     BLOB.DURATION_SESSION
             );
 
-            try (OutputStream stream = blob.getBinaryOutputStream()) {
-                stream.write(param);
+            try (OutputStream oracleStream = blob.getBinaryOutputStream()) {
+                oracleStream.write(param);
             } catch (Exception ex) {
                 blob = null;
             }

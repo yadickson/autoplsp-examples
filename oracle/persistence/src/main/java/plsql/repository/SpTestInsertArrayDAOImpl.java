@@ -105,8 +105,7 @@ public final class SpTestInsertArrayDAOImpl
                     params.getPiArray()
             );
 
-            in.put(
-                    "PI_ARRAY",
+            in.put("PI_ARRAY",
                     piArray
             );
 

@@ -79,12 +79,10 @@ public final class SpTestUpdateDAOImpl
 
         try {
 
-            in.put(
-                    "PI_ID",
+            in.put("PI_ID",
                     params.getPiId()
             );
-            in.put(
-                    "PI_NAME",
+            in.put("PI_NAME",
                     params.getPiName()
             );
 

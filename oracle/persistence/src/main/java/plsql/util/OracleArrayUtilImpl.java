@@ -46,8 +46,9 @@ public final class OracleArrayUtilImpl
 
         try {
 
-            OracleConnection oConn = connection.unwrap(OracleConnection.class);
-            return oConn.createARRAY(name, objects);
+            OracleConnection oracleConn;
+            oracleConn = connection.unwrap(OracleConnection.class);
+            return oracleConn.createARRAY(name, objects);
 
         } catch (Exception ex) {
             throw new SQLException(ex.getMessage(), "0", ex);

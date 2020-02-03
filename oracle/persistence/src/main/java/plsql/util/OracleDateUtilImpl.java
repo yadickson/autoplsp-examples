@@ -42,15 +42,15 @@ public final class OracleDateUtilImpl
             return null;
         }
 
-        DATE date;
+        DATE oracleDate;
 
         try {
-            date = new DATE(new java.sql.Date(param.getTime()));
+            oracleDate = new DATE(new java.sql.Date(param.getTime()));
         } catch (Exception ex) {
-            date = null;
+            oracleDate = null;
         }
 
-        return date;
+        return oracleDate;
     }
 
 }

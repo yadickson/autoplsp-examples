@@ -67,24 +67,19 @@ public final class SpTestCharDAOImpl
 
         try {
 
-            in.put(
-                    "PI_C1",
+            in.put("PI_C1",
                     params.getPiC1()
             );
-            in.put(
-                    "PI_C2",
+            in.put("PI_C2",
                     params.getPiC2()
             );
-            in.put(
-                    "PI_C3",
+            in.put("PI_C3",
                     params.getPiC3()
             );
-            in.put(
-                    "PI_C4",
+            in.put("PI_C4",
                     params.getPiC4()
             );
-            in.put(
-                    "PI_C5",
+            in.put("PI_C5",
                     params.getPiC5()
             );
 

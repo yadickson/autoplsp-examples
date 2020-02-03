@@ -48,15 +48,20 @@ public final class OracleObjectUtilImpl
 
         try {
 
-            OracleConnection oConn = connection.unwrap(OracleConnection.class);
+            OracleConnection oracleConn;
+            oracleConn = connection.unwrap(OracleConnection.class);
 
             StructDescriptor descriptor;
             descriptor = StructDescriptor.createDescriptor(
                     name,
-                    oConn
+                    oracleConn
             );
 
-            return new STRUCT(descriptor, oConn, objects);
+            return new STRUCT(
+                    descriptor,
+                    oracleConn,
+                    objects
+            );
 
         } catch (Exception ex) {
             throw new SQLException(ex.getMessage(), "0", ex);
